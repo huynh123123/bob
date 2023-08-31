@@ -65,9 +65,9 @@ $sql5 = 'INSERT INTO Regions (regions_name) VALUES
     ("West"),
     ("North"),
     ("East"),
-    ("South"),
+    ("South")
 ';
-$res = $conn->query($sql4);
+$res = $conn->query($sql5);
 if ($res) {
    echo 'Data inserted successfully';
 } else {
