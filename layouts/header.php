@@ -26,11 +26,6 @@
                   $dbusername = "root";
                   $password = "";
                   $dbname = "db_bob";
-                      $cookieData = json_decode($_COOKIE['user'], true);
-                      $id = $cookieData['id'];
-                      $username = $cookieData['username'];
-                      $email = $cookieData['email'];
-                      $role = $cookieData['role'];
                   
                       $conn = new mysqli($servername, $dbusername, $password, $dbname);
 
@@ -48,57 +43,44 @@
                           echo '<a class="nav-link active" aria-current="page" href="' . $link . '">' . $name . '</a>';
                           echo '</li>';
                       }
+                      if (isset($_COOKIE['user'])) {  
+                        $cookieData = json_decode($_COOKIE['user'], true);
+                        $id = $cookieData['id'];
+                        $username = $cookieData['username'];
+                        $email = $cookieData['email'];
+                        $role = $cookieData['role'];                  
+                        $query = "SELECT * FROM list_user WHERE user_id = $id";
+                        $result = mysqli_query($conn, $query);
+                    
+                        if ($result) {
+                            $row = mysqli_fetch_assoc($result);
+                    
+                            // Check if the cookie values match the database values
+                            if ($id == $row["user_id"] &&
+                                $username == $row["user_name"] &&
+                                $email == $row["user_email"] &&
+                                $role == $row["user_role"]) {
+                                echo "Hello, " . $username . "!";
+                            } else {
+                              echo '<button type="button" class="btn btn-outline-primary">
+                              <a href="login.php" style="text-decoration:none">Login</a>
+                            </button>
+                            <button type="button" class="btn btn-outline-primary">
+                              <a href="sign-up.php" style="text-decoration:none">Sign up</a>
+                            </button>';
+                            }}
+                          } else {
+                            echo '<button type="button" class="btn btn-outline-primary">
+                              <a href="login.php" style="text-decoration:none">Login</a>
+                            </button>
+                            <button type="button" class="btn btn-outline-primary">
+                              <a href="sign-up.php" style="text-decoration:none">Sign up</a>
+                            </button>';
+                          }
                   }
               ?>
           </ul>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <?php
-  if (isset($_COOKIE['user'])) {
-    $servername = "localhost";
-$dbusername = "root";
-$password = "";
-$dbname = "db_bob";
-    $cookieData = json_decode($_COOKIE['user'], true);
-    $id = $cookieData['id'];
-    $username = $cookieData['username'];
-    $email = $cookieData['email'];
-    $role = $cookieData['role'];
-
-    $conn = new mysqli($servername, $dbusername, $password, $dbname);
-
-if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
-}
-
-    $query = "SELECT * FROM list_user WHERE user_id = $id";
-    $result = mysqli_query($conn, $query);
-
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-
-        // Check if the cookie values match the database values
-        if ($id == $row["user_id"] &&
-            $username == $row["user_name"] &&
-            $email == $row["user_email"] &&
-            $role == $row["user_role"]) {
-            echo "Hello, " . $username . "!";
-        } else {
-          echo '<button type="button" class="btn btn-outline-primary">
-          <a href="login.php" style="text-decoration:none">Login</a>
-        </button>
-        <button type="button" class="btn btn-outline-primary">
-          <a href="sign-up.php" style="text-decoration:none">Sign up</a>
-        </button>';
-        }}
-      } else {
-        echo '<button type="button" class="btn btn-outline-primary">
-          <a href="login.php" style="text-decoration:none">Login</a>
-        </button>
-        <button type="button" class="btn btn-outline-primary">
-          <a href="sign-up.php" style="text-decoration:none">Sign up</a>
-        </button>';
-      }
-  ?>
           </div>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
