@@ -1,5 +1,5 @@
 <?php
-require_once '.\layouts\header.php';
+
 $initFile = '.\1.Database\init.php';
 $flagFile = '.\1.Database\init_flag.txt';
 
@@ -13,6 +13,7 @@ if (!file_exists($fflagFile)) {
   require_once $insertFile;
   file_put_contents($fflagFile, 'INSERTTTTTT');
 }
+require_once '.\layouts\header.php';
 ?>
       <div class="container-fluid">
         <div id="carousel-example-generic" class="carousel slide position-relative" data-bs-ride="carousel">

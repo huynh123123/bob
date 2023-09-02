@@ -1,7 +1,7 @@
 <?php
 $conn = new mysqli('localhost', 'root', '');
 $conn->select_db('db_bob');
-$sql1 ='INSERT INTO Header (header_name, header_link, header_parent) VALUES
+$sql1 = 'INSERT INTO Header (header_name, header_link, header_parent) VALUES
 ("Home", "index.php", null),
 ("About us", "about.php", null),
 ("Beaches", "beaches.php", null),
@@ -9,13 +9,16 @@ $sql1 ='INSERT INTO Header (header_name, header_link, header_parent) VALUES
 ("QnA", "faq.php", null),
 ("Feedback", "feedback.php", null),
 ("Contact", "contact.php", null)
-';
+ON DUPLICATE KEY UPDATE header_name = VALUES(header_name), header_link = VALUES(header_link), header_parent = VALUES(header_parent)';
+
 $res = $conn->query($sql1);
+
 if ($res) {
-echo 'Data inserted successfully';
+    echo 'Data inserted successfully';
 } else {
-echo 'Failed to insert data';
+    echo 'Failed to insert data';
 }
+
 $sql2 ='INSERT INTO Home_banner (HB_name, HB_img, HB_description) VALUES
 ("Hạ Long Bay,Vietnam", "./assets/img/banner/bb1.png","An emerald green waters and towering limestone karsts, it is a UNESCO World Heritage site and one of the most popular tourist destinations in the country."),
 ("Pattaya Beach, Thailand.", "./assets/img/banner/bb3.png","An entertainment scene, offering a wide array of bars, clubs, and shows that cater to visitors seeking a lively and energetic atmosphere after sunset."),
@@ -28,9 +31,12 @@ if ($res) {
 } else {
     echo 'Failed to insert data';
 }
-$sql3 ='INSERT INTO List_user (user_name, user_password, user_phone, user_email, user_role) VALUES
-("admin23", "1234567", "12345678", "a@gmail.com", "admin")
-';
+
+$Password_hash = password_hash(1234567, PASSWORD_DEFAULT);
+
+$sql3 ="INSERT INTO List_user (user_name, user_password, user_phone, user_email, user_role) VALUES
+('admin23', '" . $Password_hash . "', '12345678', 'a@gmail.com', 'admin')
+";
 $res = $conn->query($sql3);
 if ($res) {
     echo 'Data inserted successfully';
@@ -61,6 +67,7 @@ if ($res) {
 } else {
     echo 'Failed to insert data';
 }
+
 $sql5 = 'INSERT INTO Regions (regions_name) VALUES
     ("West"),
     ("North"),

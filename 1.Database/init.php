@@ -15,7 +15,8 @@ $sql1 = "CREATE TABLE if not exists Header (
     header_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     header_name VARCHAR(10) NOT NULL,
     header_link VARCHAR(50) NOT NULL,
-    header_parent VARCHAR(50) NULL
+    header_parent VARCHAR(50) NULL,
+    UNIQUE KEY unique_header_name (header_name)
 )";
 
 if ($conn->query($sql1) === TRUE) {
