@@ -34,8 +34,9 @@ if ($res) {
 
 $Password_hash = password_hash(1234567, PASSWORD_DEFAULT);
 
-$sql3 = "INSERT INTO List_user (user_name, user_password, user_phone, user_email, user_role)
-    VALUES ('admin23', '" . $Password_hash . "', '12345678', 'a@gmail.com', 'admin')
+$sql3 = "INSERT INTO List_user (user_name, user_password, user_phone, user_email, user_role) 
+VALUES ('anonymous', '0', '0', 'anon@gmail.com', 'user'),
+    ('admin23', '" . $Password_hash . "', '12345678', 'a@gmail.com', 'admin')
     ON DUPLICATE KEY UPDATE
     user_password = VALUES(user_password),
     user_phone = VALUES(user_phone),

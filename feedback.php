@@ -46,9 +46,45 @@ require_once '.\layouts\header.php';
         </div>
         <div class="form-fild">
           <?php
-           $cookieData = json_decode($_COOKIE['user'], true);
-           $username = $cookieData['username'];
-           echo "User: " . $username;
+           $servername = "localhost";
+           $dbusername = "root";
+           $password = "";
+           $dbname = "db_bob";
+           
+           $exist = false;
+
+               $conn = new mysqli($servername, $dbusername, $password, $dbname);
+
+               if ($conn->connect_error) {
+                 die('Connection failed: ' . $conn->connect_error);
+             } 
+             if (isset($_COOKIE['user'])) {    
+              $cookieData = json_decode($_COOKIE['user'], true);
+              $id = $cookieData['id'];
+              $username = $cookieData['username'];
+              $email = $cookieData['email'];
+              $role = $cookieData['role'];                  
+              $query = "SELECT * FROM list_user WHERE user_id = $id";
+              $result = mysqli_query($conn, $query);
+              $row = mysqli_fetch_assoc($result);
+              if ($row === null) {
+                echo 'You Are not Logged in!';
+            } else {
+              if ($result) {
+                // Check if the cookie values match the database values
+                if ($id == $row["user_id"] &&
+                    $username == $row["user_name"] &&
+                    $email == $row["user_email"] &&
+                    $role == $row["user_role"]) {
+                      $exist = true;
+                      "User: " . $username;
+                } else {
+                  echo 'You Are not Logged in!';
+                }}
+            }
+                } else {
+                  echo 'You Are not Logged in!';
+                }
           ?>
         </div>
         <div class="form-fild">
@@ -79,7 +115,6 @@ require_once '.\layouts\header.php';
       }
           $feed = $_POST['feedback'];
           $selectedBeach = $_POST['beach-drop'];
-          $cookieData = json_decode($_COOKIE['user'], true);
           date_default_timezone_set("Asia/Ho_Chi_Minh");
           $localTime = time();
           $time = date('Y-m-d H:i:s', $localTime);
@@ -88,11 +123,17 @@ require_once '.\layouts\header.php';
           $res1 = $conn->query($sql1);
           $row = $res1->fetch_assoc();
 
-          $sql = "INSERT INTO feedbacks (beaches_id, feedbacks_created_at, feedbacks_rating	, user_id, feedbacks_content) VALUES ('" . $row["beaches_id"] . "', '" . $time . "', '" . $rate . "', '" . $cookieData['id'] . "', '" . $feed . "')";
-          $res = $conn->query($sql);
+          if ($exist) {
+            $cookieData = json_decode($_COOKIE['user'], true);
+            $query1 = "INSERT INTO feedbacks (beaches_id, feedbacks_created_at, feedbacks_rating, user_id, feedbacks_content) VALUES ('" . $row["beaches_id"] . "', '" . $time . "', '" . $rate . "', '" . $cookieData['id'] . "', '" . $feed . "')";
+            $res = $conn->query($query1);
+          } else {
+            $query2 = "INSERT INTO feedbacks (beaches_id, feedbacks_created_at, feedbacks_rating, user_id, feedbacks_content) VALUES ('" . $row["beaches_id"] . "', '" . $time . "', '" . $rate . "', '1', '" . $feed . "')";
+            $res = $conn->query($query2);
+          }
 
           if ($res) {
-            echo "<script>alert('Sent:3');</script>";
+            echo "<script>alert('Sent!');</script>";
             echo '<script>
               setTimeout(function() {
               window.location.href = "index.php";
