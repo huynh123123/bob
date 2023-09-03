@@ -83,7 +83,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables </h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -100,7 +100,7 @@
                                             <th>Address</th>
                                             <th>Description</th>
                                             <th>Doc</th>
-                                            <th>Delete/Add/Edit</th>
+                                            <th>Act</th>
                                         </tr>
                                     </thead>
                                         <tr>
@@ -110,6 +110,11 @@
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Delete/Add/Edit</td>
                                         </tr>
                                     </tbody>
                                 </table>
