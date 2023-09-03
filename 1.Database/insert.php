@@ -115,8 +115,6 @@ $sql6 ='INSERT INTO Beaches (regions_id,nations_id,beaches_name,beaches_img,beac
     beaches_img_array = VALUES(beaches_img_array),
     beaches_rating = VALUES(beaches_rating),
     beaches_address = VALUES(beaches_address),
-    beaches_longitude = VALUES(beaches_longitude),
-    beaches_latitude = VALUES(beaches_latitude),
     beaches_description = VALUES(beaches_description),
     beaches_docx_link = VALUES(beaches_docx_link);
 ';
