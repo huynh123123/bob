@@ -103,19 +103,47 @@
                                             <th>Act</th>
                                         </tr>
                                     </thead>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                        <?php
+                                         $servername = "localhost";
+                                         $username = "root";
+                                         $password = "";
+                                         $dbname = "db_bob";
+                                         
+                                           $conn = new mysqli($servername, $username, $password, $dbname);
+                                           if ($conn->connect_error) {
+                                             die("Connection failed: " . $conn->connect_error);
+                                           }
+                               
+                                         $query = "SELECT * FROM beaches";
+                               $result = mysqli_query($conn, $query);
+                               if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $bid = $row["beaches_id"];
+                                    $rid = $row["regions_id"];
+                                    $nid = $row["nations_id"];
+                                    $address = $row["beaches_address"];
+                                    $name = $row["beaches_name"];
+                                    $link = $row["beaches_img"];
+                                    $linka = $row["beaches_img_array"];
+                                    $rate = $row["beaches_rating"];
+                                    $desc = $row["beaches_description"];
+
+                                    echo '<tr>
+                                            <td>' . $bid . '</td>
+                                            <td>' . $rid . '</td>
+                                            <td>' . $nid . '</td>
+                                            <td>' . $name . '</td>
+                                            <td>' . $link . '</td>
+                                            <td>' . $linka . '</td>
+                                            <td>' . $rate . '</td>
+                                            <td>' . $address . '</td>
+                                            <td>' . $desc . '</td>
+                                            <td>i dont fucking know</td>
                                             <td>Delete/Add/Edit</td>
-                                        </tr>
+                                        </tr>';
+                                }
+                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
