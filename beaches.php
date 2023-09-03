@@ -15,17 +15,15 @@ require_once '.\layouts\header.php';
 </section>
 
 <section class="container py-5">
-<p class="d-inline-flex gap-1">
-  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Link with href
-  </a>
-</p>
-<div class="collapse" id="collapseExample">
+<div class="container">
+  <div class="row">
+    <div class="col-3  ">
+    <div class="collapse" id="collapseExample">
   <div class="card card-body">
   <div class="row">
     <div class="col-3">
     <div class="list-group">
-  <ol><a class="list-group-item active" aria-current="true">Nation</a></ul>
+  <ol>
   <li class="list-group-item">
     <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
     <label class="form-check-label" for="firstRadio">cat land</label>
@@ -44,6 +42,16 @@ require_once '.\layouts\header.php';
 </div>
 </div>
 </div>
+    </div>
+    <div class="col-6">.col-6<br>Subsequent columns continue along the new line.</div>
+  </div>
+</div>
+<p class="d-inline-flex gap-1">
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Link with href
+  </a>
+</p>
+
 </section>
   <?php
 require_once './layouts/footer.php';

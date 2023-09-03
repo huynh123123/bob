@@ -1,11 +1,9 @@
 <?php
-
 $initFile = '.\1.Database\init.php';
 $flagFile = '.\1.Database\init_flag.txt';
-
 if (!file_exists($flagFile)) {
-    require_once $initFile;
-    file_put_contents($flagFile, 'Finish create database and table');
+  require_once $initFile;
+  file_put_contents($flagFile, 'Finish create database and table');
 }
 $insertFile = '.\1.Database\insert.php';
 $fflagFile = '.\1.Database\insert_flag.txt';
@@ -83,12 +81,12 @@ require_once '.\layouts\header.php';
           </div>
     </div>
     <div class="py-5 ">
-      <div class="text-center fs-2 "><b>Top 9 Beach in the world</b></div>
+      <div class="text-center fs-2 "><b>Top 8 Beach in the world</b></div>
     </br>
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-10 mb-6">
-          <div class="col-lg-3 col-md-4 col-sm-6">            
-                        <div class="card mb-40" style="width: 18rem;">
+          <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
+                        <div class="card mb-40 py-3" style="width: 18rem;">
                           <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
                           <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -97,8 +95,8 @@ require_once '.\layouts\header.php';
                           </div>
                         </div>
           </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card mb-40" style="width: 18rem;">
+          <div class="col-lg-3 col-md-4 col-sm-6 py-3">
+                        <div class="card mb-40 py-3 " style="width: 18rem;">
                           <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
                           <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -108,8 +106,8 @@ require_once '.\layouts\header.php';
                         </div>
             </div>
 
-            <div class="col-lg-3 col-md-4 col-sm-6">            
-              <div class="card mb-40" style="width: 18rem;">
+            <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
+              <div class="card mb-40 py-3 " style="width: 18rem;">
                 <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -118,8 +116,8 @@ require_once '.\layouts\header.php';
                 </div>
               </div>
   </div>
-  <div class="col-lg-3 col-md-4 col-sm-6">            
-    <div class="card mb-40" style="width: 18rem;">
+  <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
+    <div class="card mb-40 py-3 " style="width: 18rem;">
       <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
@@ -128,8 +126,8 @@ require_once '.\layouts\header.php';
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-4 col-sm-6">            
-    <div class="card mb-40" style="width: 18rem;">
+  <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
+    <div class="card mb-40 py-3 " style="width: 18rem;">
       <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
@@ -138,8 +136,8 @@ require_once '.\layouts\header.php';
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-4 col-sm-6">            
-                        <div class="card" style="width: 18rem;">
+  <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
+                        <div class="card mb-40 py-3 " style="width: 18rem;">
                           <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
                           <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -149,8 +147,8 @@ require_once '.\layouts\header.php';
                         </div>
           </div>
 
-            <div class="col-lg-3 col-md-4 col-sm-6">            
-              <div class="card mb-40" style="width: 18rem;">
+            <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
+              <div class="card mb-40 py-3" style="width: 18rem;">
                 <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -160,10 +158,10 @@ require_once '.\layouts\header.php';
               </div>
             </div>
 
-          <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="col-lg-3 col-md-4 col-sm-6 py-3"  >
               
-              <div class="card-body">
-                        <div class="card mb-40" style="width: 18rem;">
+              <div class="card-body mb-40 py-3">
+                        <div class="card  " style="width: 18rem;">
                           <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
                           <div class="card-body">
                             <h5 class="card-title">Card title</h5>

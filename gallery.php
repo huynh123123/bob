@@ -20,7 +20,7 @@ require_once '.\layouts\header.php';
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
               <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class="card-body">
+              <div class=" card-body mb-40 py-3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -31,7 +31,7 @@ require_once '.\layouts\header.php';
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
               <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class="card-body">
+              <div class=" card-body mb-40 py-3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -42,7 +42,7 @@ require_once '.\layouts\header.php';
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
               <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class="card-body">
+              <div class=" card-body mb-40 py-3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -53,7 +53,7 @@ require_once '.\layouts\header.php';
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
               <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class="card-body">
+              <div class=" card-body mb-40 py-3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -66,7 +66,7 @@ require_once '.\layouts\header.php';
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
               <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class="card-body">
+              <div class=" card-body mb-40 py-3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -76,7 +76,7 @@ require_once '.\layouts\header.php';
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
               <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class="card-body">
+              <div class=" card-body mb-40 py-3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -87,7 +87,7 @@ require_once '.\layouts\header.php';
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
                 <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-                  <div class="card-body">
+                  <div class=" card-body mb-40 py-3">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -97,7 +97,7 @@ require_once '.\layouts\header.php';
             <div class="col-lg-3 col-md-4 col-sm-6">            
               <div class="card mb-40" style="width: 18rem;">
               <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class="card-body">
+              <div class=" card-body mb-40 py-3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -111,7 +111,7 @@ require_once '.\layouts\header.php';
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
               <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class="card-body">
+              <div class=" card-body mb-40 py-3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
