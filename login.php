@@ -26,21 +26,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($result->num_rows > 0) {
    $row = $result->fetch_assoc();
    if (password_verify($pass, $row['user_password'])) {
-    if (isset($_POST['remember']) && $_POST['remember'] === 'on') {
-      $userCookieData = array(
-        "id" => $row["user_id"],
-        "username" => $row["user_name"],
-        "email" => $row["user_email"],
-        "role" => $row["user_role"]
-    );
-    $encodedUserCookieData = json_encode($userCookieData);
-    setcookie('user', $encodedUserCookieData, time() + 86400, '/');
-    header("Location: index.php");
-} else {
-  header("Location: index.php");
+  $userCookieData = array(
+    "id" => $row["user_id"],
+    "username" => $row["user_name"],
+    "email" => $row["user_email"],
+    "role" => $row["user_role"]
+);
+$encodedUserCookieData = json_encode($userCookieData);
+setcookie('user', $encodedUserCookieData, time() + 86400, '/');
+header("Location: index.php");
   exit;
-}
-
    } else {
      echo "<script>alert('Password incorrect');</script>";
     }
@@ -68,10 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="password" class="form-label">Password<span class="required">*</span></label>
             <input type="password" name="password" placeholder="Your Password" required>
           </div>
-          <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="remember" name="remember">
-    <label class="form-check-label" for="remember">Remember Me</label>
-  </div>
           <button type="submit" class="btn btn-primary">Submit</button>
           <div class="text">Forgot the password?<a href="forgotpassword.php">Click here</a></div>
           <div class="text">Don't have an account?<a href="sign-up.php">Click here</a></div>
