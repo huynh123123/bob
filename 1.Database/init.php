@@ -85,8 +85,6 @@ $sql6 = "CREATE TABLE if not exists Beaches (
     beaches_img_array VARCHAR(255) NOT NULL,
     beaches_rating INT NULL,
     beaches_address VARCHAR(255) NOT NULL,
-    beaches_longitude DECIMAL(9,6) NOT NULL,
-    beaches_latitude DECIMAL(8,6) NOT NULL,
     beaches_description TEXT NOT NULL,
     beaches_docx_link VARCHAR(255) NOT NULL,
     FOREIGN KEY (regions_id) REFERENCES Regions(regions_id),
