@@ -16,35 +16,60 @@ require_once '.\layouts\header.php';
       <div class="container-fluid">
         <div id="carousel-example-generic" class="carousel slide position-relative" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="./assets/img/banner/bb1.png"  class="d-block w-100 h-20" alt="First slide">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Hạ Long Bay,Vietnam</h5>
-                <p>An emerald green waters and towering limestone karsts, it is a UNESCO World Heritage site and one of the most popular tourist destinations in the country.</p>
-              </div>
-            </div>
-            <div class="carousel-item"> 
-              <img src="./assets/img/banner/bb2.png"  class="d-block w-100 h-20" alt="Second slide">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Waikiki Beach, Hawaii</h5>
-                <p>A legendary surf culture, attracting surfers from around the world who come to ride the gentle rolling waves of this iconic beach.</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="./assets/img/banner/bb3.png" class="d-block w-100 h-20" alt="Third slide">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Pattaya Beach, Thailand.</h5>
-                <p>An entertainment scene, offering a wide array of bars, clubs, and shows that cater to visitors seeking a lively and energetic atmosphere after sunset.</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="./assets/img/banner/bb4.png" class="d-block w-100 h-20" alt="Fouth slide">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Bondi Beach, Australia</h5>
-                <p>A vibrant atmosphere and diverse community, offering a unique blend of art, music, and food</p>
-              </div>
-            </div>
-          </div>
+            <?php
+             $servername = "localhost";
+             $username = "root";
+             $password = "";
+             $dbname = "db_bob";
+             
+               $conn = new mysqli($servername, $username, $password, $dbname);
+               if ($conn->connect_error) {
+                 die("Connection failed: " . $conn->connect_error);
+               }
+   
+             $querymain = 'SELECT * FROM home_banner WHERE HB_id = "1"';
+             $resultmain = mysqli_query($conn, $querymain);
+
+             if ($resultmain->num_rows > 0) {
+              while ($row = $resultmain->fetch_assoc()) {
+                  $name = $row["HB_name"];
+                  $link = $row["HB_img"];
+                  $desc = $row["HB_description"];
+                  
+echo '<div class="carousel-item active">';
+echo '<img src="' . $link . '"  class="d-block w-100 h-20">';
+echo '<div class="carousel-caption d-none d-md-block">';
+echo '<h5>' . $name . '</h5>';
+echo '<p>' . $desc . '</p>';
+echo '</div>';
+echo '</div>';
+              }
+          }
+          $query = "SELECT * FROM home_banner";
+             $result = mysqli_query($conn, $query);
+             $firstRow = true;
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        if ($firstRow) {
+            $firstRow = false;
+            continue;  // Skip the first row
+        }
+
+        $name = $row["HB_name"];
+        $link = $row["HB_img"];
+        $desc = $row["HB_description"];
+
+        echo '<div class="carousel-item">';
+        echo '<img src="' . $link . '"  class="d-block w-100 h-20">';
+        echo '<div class="carousel-caption d-none d-md-block">';
+        echo '<h5>' . $name . '</h5>';
+        echo '<p>' . $desc . '</p>';
+        echo '</div>';
+        echo '</div>';
+    }
+}
+            ?>
           <button class="carousel-control-prev" data-bs-target="#carousel-example-generic" type="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -85,97 +110,53 @@ require_once '.\layouts\header.php';
     </br>
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-10 mb-6">
-          <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
-                        <div class="card mb-40 py-3" style="width: 18rem;">
-                          <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                        </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 py-3">
-                        <div class="card mb-40 py-3 " style="width: 18rem;">
-                          <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                        </div>
-            </div>
+              <?php
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $dbname = "db_bob";
+          
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
 
-            <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
-              <div class="card mb-40 py-3 " style="width: 18rem;">
-                <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+          $query = "SELECT * FROM beaches";
+$result = mysqli_query($conn, $query);
+
+// Counter variable
+$count = 0;
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $name = $row["beaches_name"];
+        $link = $row["beaches_img"];
+        $rate = $row["beaches_rating"];
+        echo '<div class="col-lg-3 col-md-4 col-sm-6 py-3">';
+        echo '<div class="card mb-40 py-3 expandable-card" style="width: 18rem;">';
+        echo '<img src="' . $link . '" class="card-img-top" alt="...">';
+        echo '<div class="card-body">';
+        echo '<h5 class="card-title">' . $name . '</h5>';
+        echo '<p class="card-text expandable truncate">Rating: ' . $rate . '</p>';
+        echo '<a href="#" class="btn btn-primary">Go somewhere</a>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        $count++;
+        if ($count >= 8) {
+            break;
+        }
+    }
+    $conn->close();
+}
+          ?>
               </div>
   </div>
-  <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
-    <div class="card mb-40 py-3 " style="width: 18rem;">
-      <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
-    <div class="card mb-40 py-3 " style="width: 18rem;">
-      <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
-                        <div class="card mb-40 py-3 " style="width: 18rem;">
-                          <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                        </div>
-          </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6 py-3">            
-              <div class="card mb-40 py-3" style="width: 18rem;">
-                <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-
-          <div class="col-lg-3 col-md-4 col-sm-6 py-3"  >
-              
-              <div class="card-body mb-40 py-3">
-                        <div class="card  " style="width: 18rem;">
-                          <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                        </div>
-            </div>
-          </div>
           
         </div>
       </div>
     </div>
-    </div>
-  <?php
+    <?php
 require_once './layouts/footer.php';
 ?>  
+    </div>

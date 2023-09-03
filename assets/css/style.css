@@ -40,6 +40,23 @@
 
 }
 
+.expandable-card {
+  pointer-events: auto;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;
+}
+
+.expanded {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
 .section, .main-wrapper {
     float: left;
     width: 100%;
