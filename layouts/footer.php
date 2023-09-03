@@ -8,7 +8,7 @@
       <li class="nav-item"><a href="gallery.php" class="nav-link px-2 text-body-secondary">Gallery</a></li>
       <li class="nav-item"><a href="faq.php" class="nav-link px-2 text-body-secondary">QnA</a></li>
       <li class="nav-item"><a href="feedback.php" class="nav-link px-2 text-body-secondary">Feedback</a></li>
-      <li class="nav-item"><a href="contac.php" class="nav-link px-2 text-body-secondary">Contact</a></li>
+      <li class="nav-item"><a href="contact.php" class="nav-link px-2 text-body-secondary">Contact</a></li>
     </ul>
     <p class="text-center text-body-secondary">&copy; 2023----Group 4</p>
   </footer>

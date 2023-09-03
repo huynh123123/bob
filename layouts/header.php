@@ -48,7 +48,7 @@
           </ul>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <?php
-            if (isset($_COOKIE['user'])) {  
+            if (isset($_COOKIE['user'])) {    
               $cookieData = json_decode($_COOKIE['user'], true);
               $id = $cookieData['id'];
               $username = $cookieData['username'];
@@ -56,24 +56,31 @@
               $role = $cookieData['role'];                  
               $query = "SELECT * FROM list_user WHERE user_id = $id";
               $result = mysqli_query($conn, $query);
-          
+              $row = mysqli_fetch_assoc($result);
+              if ($row === null) {
+                echo '<button type="button" class="btn btn-outline-primary">
+                <a href="login.php" style="text-decoration:none">Login</a>
+              </button>
+              <button type="button" class="btn btn-outline-primary">
+                <a href="sign-up.php" style="text-decoration:none">Sign up</a>
+              </button>';
+            } else {
               if ($result) {
-                  $row = mysqli_fetch_assoc($result);
-          
-                  // Check if the cookie values match the database values
-                  if ($id == $row["user_id"] &&
-                      $username == $row["user_name"] &&
-                      $email == $row["user_email"] &&
-                      $role == $row["user_role"]) {
-                      echo "Hello, " . $username . "!";
-                  } else {
-                    echo '<button type="button" class="btn btn-outline-primary">
-                    <a href="login.php" style="text-decoration:none">Login</a>
-                  </button>
-                  <button type="button" class="btn btn-outline-primary">
-                    <a href="sign-up.php" style="text-decoration:none">Sign up</a>
-                  </button>';
-                  }}
+                // Check if the cookie values match the database values
+                if ($id == $row["user_id"] &&
+                    $username == $row["user_name"] &&
+                    $email == $row["user_email"] &&
+                    $role == $row["user_role"]) {
+                    echo "Hello, " . $username . "!";
+                } else {
+                  echo '<button type="button" class="btn btn-outline-primary">
+                  <a href="login.php" style="text-decoration:none">Login</a>
+                </button>
+                <button type="button" class="btn btn-outline-primary">
+                  <a href="sign-up.php" style="text-decoration:none">Sign up</a>
+                </button>';
+                }}
+            }
                 } else {
                   echo '<button type="button" class="btn btn-outline-primary">
                     <a href="login.php" style="text-decoration:none">Login</a>

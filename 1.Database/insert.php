@@ -146,7 +146,7 @@ if ($res) {
 // Đóng kết 
 $sql11 ='INSERT INTO QnA (QnA_id_question, QnA_id_answer) VALUES
 ("Q:What is Beauty of beaches?","A:Beauty of beaches is a website about the beaches over the world."),
-("Q:Why i here?","A:To search for information about beaches, of course!"),
+("Q:Why am i here?","A:To search for information about beaches, of course!"),
 ("Q:Can i book tour in here?","A:Unfortunately....we just a website about information, not sell tour. Maybe, in future, we will add it!"),
 ("Q:Help!i can not login to the website","A:Sorry to hear that. Please contact us by following the mail and phone in <a href= contact.php >Contact Us</a>"),
 ("Q:In the future, will you add something more like a wishlist or compare how far the user is from the beach that is set?","A:That is a good idea! We will try to add it in the future!"),
