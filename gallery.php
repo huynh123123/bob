@@ -15,7 +15,6 @@ require_once '.\layouts\header.php';
 
     <div class="album py-5 ">
       <div class="container">
-        <div class="text-center fs-2 "><b>Vietnam</b></div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
@@ -61,7 +60,6 @@ require_once '.\layouts\header.php';
             </div>
           </div>
     </div>
-          <div class="text-center fs-2 "><b>USA</b></div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
@@ -105,8 +103,6 @@ require_once '.\layouts\header.php';
             </div>
             </div>
           </div>
-    
-          <div class="text-center fs-2 "><b>India</b></div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col-lg-3 col-md-4 col-sm-6">            
             <div class="card mb-40" style="width: 18rem;">
