@@ -1,84 +1,89 @@
 <?php
 $conn = new mysqli('localhost', 'root', '');
 $conn->select_db('db_bob');
+//Header
 $sql1 = 'INSERT INTO Header (header_name, header_link, header_parent) VALUES
-("Home", "index.php", null),
-("About us", "about.php", null),
-("Beaches", "beaches.php", null),
-("Gallery", "gallery.php", null),
-("QnA", "faq.php", null),
-("Feedback", "feedback.php", null),
-("Contact", "contact.php", null)
-ON DUPLICATE KEY UPDATE header_name = VALUES(header_name), header_link = VALUES(header_link), header_parent = VALUES(header_parent)';
+    ("Home", "index.php", null),
+    ("About us", "about.php", null),
+    ("Beaches", "beaches.php", null),
+    ("Gallery", "gallery.php", null),
+    ("QnA", "faq.php", null),
+    ("Feedback", "feedback.php", null),
+    ("Contact", "contact.php", null)
+    ON DUPLICATE KEY UPDATE 
+        header_name = VALUES(header_name), 
+        header_link = VALUES(header_link), 
+        header_parent = VALUES(header_parent)';
 $res = $conn->query($sql1);
-
 if ($res) {
     echo 'Data inserted successfully';
 } else {
     echo 'Failed to insert data';
 }
-
+//Home banner
 $sql2 = 'INSERT INTO Home_banner (HB_name, HB_img, HB_description) VALUES
     ("Hạ Long Bay,Vietnam", "./assets/img/banner/bb1.png","An emerald green waters and towering limestone karsts, it is a UNESCO World Heritage site and one of the most popular tourist destinations in the country."),
     ("Pattaya Beach, Thailand.", "./assets/img/banner/bb3.png","An entertainment scene, offering a wide array of bars, clubs, and shows that cater to visitors seeking a lively and energetic atmosphere after sunset."),
     ("Bondi Beach, Australia", "./assets/img/banner/bb4.png","A vibrant atmosphere and diverse community, offering a unique blend of art, music, and food"),
     ("Waikiki Beach, Hawaii", "./assets/img/banner/bb2.png","A legendary surf culture, attracting surfers from around the world who come to ride the gentle rolling waves of this iconic beach.")
-ON DUPLICATE KEY UPDATE HB_name = VALUES(HB_name), HB_img = VALUES(HB_img), HB_description = VALUES(HB_description)';
-
+    ON DUPLICATE KEY UPDATE 
+        HB_name = VALUES(HB_name), 
+        HB_img = VALUES(HB_img), 
+        HB_description = VALUES(HB_description)';
 $res = $conn->query($sql2);
 if ($res) {
     echo 'Data inserted successfully';
 } else {
     echo 'Failed to insert data';
 }
-
+//User
 $Password_hash = password_hash(1234567, PASSWORD_DEFAULT);
-
-$sql3 = "INSERT INTO List_user (user_name, user_password, user_phone, user_email, user_role) 
-VALUES ('anonymous', '0', '0', 'anon@gmail.com', 'user'),
-    ('admin23', '" . $Password_hash . "', '12345678', 'a@gmail.com', 'admin')
+$sql3 = 'INSERT INTO List_user (user_name, user_password, user_phone, user_email, user_role) VALUES 
+    ("anonymous", "0", "0", "anon@gmail.com", "user"),
+    ("admin23", "' . $Password_hash . '", "2345678", "a@gmail.com", "admin")
     ON DUPLICATE KEY UPDATE
-    user_password = VALUES(user_password),
-    user_phone = VALUES(user_phone),
-    user_email = VALUES(user_email),
-    user_role = VALUES(user_role)";
-
+        user_password = VALUES(user_password),
+        user_phone = VALUES(user_phone),
+        user_email = VALUES(user_email),
+        user_role = VALUES(user_role)';
 $res = $conn->query($sql3);
 if ($res) {
     echo 'Data inserted successfully';
 } else {
     echo 'Failed to insert data';
 }
+//Nation
 $sql4 = 'INSERT INTO Nations (nations_name) VALUES
-("Australia"),
-("Brazil"),
-("France Polynesia"),
-("Greece"),
-("Kenya"),
-("Malawi"),
-("Portugal"),
-("Puerto Rico"),
-("Thailand"),
-("Turkey"),
-("Turks and Caicos"),
-("United Kingdom"),
-("United States"),
-("Vietnam")
-ON DUPLICATE KEY UPDATE
-    nations_name = VALUES(nations_name)';
+    ("Australia"),
+    ("Brazil"),
+    ("France Polynesia"),
+    ("Greece"),
+    ("Kenya"),
+    ("Malawi"),
+    ("Portugal"),
+    ("Puerto Rico"),
+    ("Thailand"),
+    ("Turkey"),
+    ("Turks and Caicos"),
+    ("United Kingdom"),
+    ("United States"),
+    ("Vietnam")
+    ON DUPLICATE KEY UPDATE
+        nations_name = VALUES(nations_name)';
 $res = $conn->query($sql4);
 if ($res) {
     echo 'Data inserted successfully';
 } else {
     echo 'Failed to insert data';
 }
+//Region
 $sql5 = 'INSERT INTO Regions (regions_name) VALUES
     ("West"),
     ("North"),
     ("East"),
     ("South")
-ON DUPLICATE KEY UPDATE
-    regions_name = VALUES(regions_name)';
+    ON DUPLICATE KEY UPDATE
+        regions_name = VALUES(regions_name)';
 
 $res = $conn->query($sql5);
 if ($res) {

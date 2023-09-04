@@ -21,7 +21,7 @@ require_once '.\layouts\header.php';
                 <div id="filter" class="p-2 bg-light ms-md-4 ms-sm-2 border"> 
                     <div class="border-bottom h5 text-uppercase">Filter By</div> 
                     <div class="box border-bottom"> 
-                        <div class="box-label text-uppercase d-flex align-items-center">Price </div> 
+                        <div class="box-label text-uppercase d-flex align-items-center">Nation</div> 
                         <div id="inner-box" class="collapse show"> 
                             <div class="my-1"> 
                                 <label class="tick">Less than 2000 
@@ -66,58 +66,9 @@ require_once '.\layouts\header.php';
                                         </label> 
                                     </div> 
                                 </div> 
-                            </div> 
-                            <div class="box border-bottom"> 
-                                <div id="property" class="collapse"> <div class="my-1"> 
-                                    <label class="tick">beachs 
-                                        <input type="checkbox" checked="checked"> 
-                                        <span class="check"></span> 
-                                    </label> 
-                                </div> 
-                                <div class="my-1"> 
-                                    <label class="tick">Apartments 
-                                        <input type="checkbox"> 
-                                        <span class="check"></span> 
-                                    </label> 
-                                </div> 
-                                <div class="my-1"> 
-                                    <label class="tick">Guest houses 
-                                        <input type="checkbox"> 
-                                        <span class="check"></span> 
-                                    </label> 
-                                </div> 
-                                <div class="my-1"> 
-                                    <label class="tick">Resorts 
-                                        <input type="checkbox"> 
-                                        <span class="check"></span> 
-                                    </label> 
-                                </div> 
-                                <div class="my-1"> 
-                                    <label class="tick">Villas 
-                                        <input type="checkbox"> 
-                                        <span class="check"></span> 
-                                    </label> 
-                                </div> 
-                                <div class="my-1"> 
-                                        <label class="tick">Lodges 
-                                            <input type="checkbox" checked> 
-                                            <span class="check"></span> 
-                                        </label> 
-                                    </div> 
-                                    <div class="my-1"> 
-                                            <label class="tick">Holiday Homes 
-                                                <input type="checkbox"> 
-                                                <span class="check">
-                                                </span> 
-                                            </label> 
-                                        </div> 
-                                    </div> 
-                                </div> 
+                            </div>  
                                 <div class="box border-bottom"> 
-                                    <div class="box-label text-uppercase d-flex align-items-center">Amenities 
-                                        <button class="btn ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#amenities" aria-expanded="false" aria-controls="amenities"> 
-                                            <span class="fas fa-plus"></span> 
-                                        </button> 
+                                    <div class="box-label text-uppercase d-flex align-items-center">Region
                                     </div> 
                                 </div> 
                                 <div class="box"> 
