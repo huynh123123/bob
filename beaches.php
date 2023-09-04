@@ -77,7 +77,6 @@ require_once '.\layouts\header.php';
                         </div> 
                         <div class="bg-white p-2 border" id="beachs"> 
                             <div class="beach py-2 px-2 pb-4 border-bottom"> 
-                                <div class="row"> 
                                     <?php
                                     $servername = "localhost";
                                     $username = "root";
@@ -97,7 +96,8 @@ require_once '.\layouts\header.php';
                                             $name = $row["beaches_name"];
                                             $link = $row["beaches_img"];
                                             $rate = $row["beaches_rating"];
-                                            echo '<div class="col-lg-3"> 
+                                            echo '<div class="row"> 
+                                            <div class="col-lg-3"> 
                                     <img src="' . $link . '" alt="" class="beach-img"> 
                                 </div> 
                                 <div class="col-lg-9"> 
@@ -113,14 +113,14 @@ require_once '.\layouts\header.php';
                                     </div> 
                                         </div> 
                                     </div> 
-                                </div> ';
+                                </div>
+                                </div>  ';
                                         }
                                         $conn->close();
                                     }
 
                                     
                                     ?>
-</div> 
 </div>
 </div>
 </section>
