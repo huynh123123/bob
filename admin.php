@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -103,53 +103,104 @@
                                             <th>Act</th>
                                         </tr>
                                     </thead>
-                                        <?php
-                                         $servername = "localhost";
-                                         $username = "root";
-                                         $password = "";
-                                         $dbname = "db_bob";
-                                         
-                                           $conn = new mysqli($servername, $username, $password, $dbname);
-                                           if ($conn->connect_error) {
-                                             die("Connection failed: " . $conn->connect_error);
-                                           }
-                               
-                                         $query = "SELECT * FROM beaches";
-                               $result = mysqli_query($conn, $query);
-                               if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    $bid = $row["beaches_id"];
-                                    $rid = $row["regions_id"];
-                                    $nid = $row["nations_id"];
-                                    $address = $row["beaches_address"];
-                                    $name = $row["beaches_name"];
-                                    $link = $row["beaches_img"];
-                                    $linka = $row["beaches_img_array"];
-                                    $rate = $row["beaches_rating"];
-                                    $desc = $row["beaches_description"];
+                                    <?php
+                                    $servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_bob";
 
-                                    echo '<tr>
-                                            <td>' . $bid . '</td>
-                                            <td>' . $rid . '</td>
-                                            <td>' . $nid . '</td>
-                                            <td>' . $name . '</td>
-                                            <td>' . $link . '</td>
-                                            <td>' . $linka . '</td>
-                                            <td>' . $rate . '</td>
-                                            <td>' . $address . '</td>
-                                            <td>' . $desc . '</td>
-                                            <td>i dont fucking know</td>
-                                            <td>Delete/Add/Edit</td>
-                                        </tr>';
-                                }
-                            }
-                                        ?>
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+function getBeaches()
+{
+    global $conn;
+    $sql = "SELECT * FROM beaches";
+    $result = $conn->query($sql);
+    $beaches = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $beaches[] = $row;
+        }
+    }
+    return $beaches;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    try {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $rating = $_POST['rating'];
+        $desc = $_POST['description'];
+
+        $sql = "UPDATE beaches
+                SET beaches_name = '" . $name . "', beaches_rating = '" . $rating . "', beaches_description = '" . $desc . "'
+                WHERE beaches_id = '" . $id . "';
+                ";
+
+        $res = $conn->query($sql);
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+    if ($res) {
+        echo 'Data updated successfully';
+    } else {
+        echo 'Failed to update data';
+    }
+
+}
+
+// Get all beaches
+$beaches = getBeaches();
+    foreach ($beaches as $beach) : ?>
+            <tr>
+                <td><?php echo $beach['beaches_id']; ?></td>
+                <td contenteditable="true"><?php echo $beach['beaches_name']; ?></td>
+                <td contenteditable="true"><?php echo $beach['beaches_rating']; ?></td>
+                <td contenteditable="true"><?php echo $beach['beaches_description']; ?></td>
+                <td>
+                    <button data-id="<?php echo $beach['beaches_id']; ?>" class="edit-button">Edit</button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
+                            <script>
+    $(document).ready(function() {
+        $('.edit-button').click(function() {
+            var $row = $(this).closest('tr'); // Find the closest parent element 'tr'
+ var beachId = $row.find('td:first-child').text();
+var updatedName = $row.find('td:nth-child(2)').text();
+var updatedRating = $row.find('td:nth-child(3)').text();
+var updatedDescription = $row.find('td:nth-child(4)').text();
+
+            var updatedBeach = {
+                id: beachId,
+                name: updatedName,
+                rating: updatedRating,
+                description: updatedDescription
+            };
+
+            $.ajax({
+                url: 'admin.php',
+                type: 'POST',
+                data: updatedBeach,
+                success: function(response) {
+                    console.log(updatedBeach);
+
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
                         </div>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
 
