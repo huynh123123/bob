@@ -3,8 +3,18 @@ require_once '.\layouts\header.php';
 ?>
 
 <body>
+<section class="py-5 text-center container banner-pp">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Feedback</h1>
+      <p class="lead text-body-secondary">"Where you can send your feedback to us."</p>
+        <a href="index.php" class="btn btn-secondary my-2">Back to home page</a>
+      </p>
+    </div>
+  </div>
+</section>
   <section>
-    <div class="section pt-90 pt-lg-70 pt-md-60 pt-sm-55 pt-xs-45 pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
+    <div class="section pt-90 pt-lg-70 pt-md-60 pt-sm-55 pt-xs-45 pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20"style="background-image: url(https://media.cntraveler.com/photos/5d1cd1e7ec86ec0008752a9a/16:9/w_2580,c_limit/MarasusaTropea,-Calabria_GettyImages-547423148.jpg);background-size:cover; background-position:center; height:100%; margin-top: 20px;">
       <div class="container"></div>
       <form class="card register-form" action="feedback.php" method="post">
         <p class="text-center fs-2">Feedback</p>
@@ -152,7 +162,6 @@ require_once '.\layouts\header.php';
     </div>
  <?php
   require_once './layouts/footer.php';
- ?>
-
+ ?> 
   </section>
  

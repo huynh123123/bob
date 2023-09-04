@@ -7,7 +7,7 @@ require_once '.\layouts\header.php';
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
       <h1 class="fw-light">Contact us</h1>
-      <p class="lead text-body-secondary">"where you can contact us."</p>
+      <p class="lead text-body-secondary">"Where you can contact us."</p>
         <a href="index.php" class="btn btn-secondary my-2">Back to home page</a>
       </p>
     </div>
@@ -15,42 +15,44 @@ require_once '.\layouts\header.php';
 </section>
 <section class="container">
   <div>
-      <h2 style="margin-top: 20px; padding-bottom: 20px; ">Contact us</h2>
+      <h2 style="margin-top: 20px; padding-bottom: 20px; text-transform: uppercase; background-color: antiquewhite; text-align: center; line-height: 30px; padding-top: 15px; border-radius: 20px; margin-bottom: 20px;">Contact us</h2>
   </div>
     <div class="row">
       <div class="col-6">
-        <div><strong>Social Network</strong></div>
+        <div style="margin-bottom: 15px; padding-bottom: 15px;"><strong>Social Network</strong></div>
           <div>
-            Facebook: Facebook.com/user
+            <a href="#" class="fa fa-facebook"></a>
+            <span>facebook.com/user</span>
           </div>
           <div>
-            Instagram: 12324
+            <a href="#" class="fa fa-instagram"></a>
+            <span>_glx.23_</span>
           </div>
           <div>
-            Twitter: 1213131
+            <a href="#" class="fa fa-twitter"></a>
+            <span>@galaxycat</span>
           </div>
           <div>
-           TikTok: 123131
-          </div>
-          <div>
-            Threads: 123131
-          </div>
-          <div>
-            Youtube: 123131
+            <a href="#" class="fa fa-youtube"></a>
+            <span>Galaxy Studio</span>
           </div>
       </div>
       <div class="col-6">
-        <div><strong>Contact Info</strong></div>
+        <div style="margin-bottom: 15px; padding-bottom: 15px;"><strong>Contact Info</strong></div>
           <div>
+            <i style="font-size:24px" class="fa">&#xf0e0;</i>
             Email: galaxy@gmail.com
           </div>
           <div>
+            <i style="font-size:24px" class="fa">&#xf0e0;</i>
             Email: nikocute@gmail.com
           </div>
           <div>
+            <i style="font-size:24px" class="fa">&#xf2b9;</i>
             Phone: 0123131313
           </div>
           <div>
+            <i style="font-size:24px" class="fa">&#xf2b9;</i>
             Phone: 0222222222
           </div>
       </div>
