@@ -12,7 +12,7 @@
     </ul>
     <p class="text-center text-body-secondary">&copy; 2023----Group 4</p>
   </footer>
-
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src="assets/js/bootstrap.bundle.js"></script>
 <script src="assets/js/app.js"></script>
   </body>
