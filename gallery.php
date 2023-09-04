@@ -6,7 +6,7 @@ require_once '.\layouts\header.php';
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="fw-light">Gallery of beaches</h1>
-          <p class="lead text-body-secondary">"Where you can find all picture of the sea and sand."</p>
+          <p class="lead text-body-secondary">Where you can find all picture of the sea and sand.</p>
             <a href="index.php" class="btn btn-secondary my-2">Back to home page</a>
           </p>
         </div>
