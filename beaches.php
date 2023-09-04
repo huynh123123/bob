@@ -78,23 +78,48 @@ require_once '.\layouts\header.php';
                         <div class="bg-white p-2 border" id="beachs"> 
                             <div class="beach py-2 px-2 pb-4 border-bottom"> 
                                 <div class="row"> 
-                                    <div class="col-lg-3"> 
-                                        <img src="https://images.unsplash.com/photo-1580835845971-a393b73bf370?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" alt="" class="beach-img"> 
+                                    <?php
+                                    $servername = "localhost";
+                                    $username = "root";
+                                    $password = "";
+                                    $dbname = "db_bob";
+                                    
+                                      $conn = new mysqli($servername, $username, $password, $dbname);
+                                      if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                      }
+
+                                      $query = "SELECT * FROM beaches";
+                                      $result = mysqli_query($conn, $query);
+
+                                      if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            $name = $row["beaches_name"];
+                                            $link = $row["beaches_img"];
+                                            $rate = $row["beaches_rating"];
+                                            echo '<div class="col-lg-3"> 
+                                    <img src="' . $link . '" alt="" class="beach-img"> 
+                                </div> 
+                                <div class="col-lg-9"> 
+                                    <div class="d-md-flex align-items-md-center"> 
+                                    <div class="name">"' . $name . '" 
+                                        <span class="city">Bandra, Mumbai</span> 
+                                <div class="rating"> 
+                                    <span class="fas fa-star"></span> 
+                                    <span class="fas fa-star"></span>
+                                     <span class="fas fa-star"></span> 
+                                     <span class="fas fa-star"></span> 
+                                     <span class="far fa-star"></span> <!-- Book now Enquiry --> 
                                     </div> 
-                                    <div class="col-lg-9"> 
-                                        <div class="d-md-flex align-items-md-center"> 
-                                        <div class="name">Mayflower Hibiscus Inn 
-                                            <span class="city">Bandra, Mumbai</span> 
-                                    <div class="rating"> 
-                                        <span class="fas fa-star">
-                                        </span> <span class="fas fa-star"></span>
-                                         <span class="fas fa-star"></span> 
-                                         <span class="fas fa-star"></span> 
-                                         <span class="far fa-star"></span> <!-- Book now Enquiry --> 
                                         </div> 
-                                            </div> 
-                                        </div> 
- </div> 
+                                    </div> 
+                                </div> ';
+                                        }
+                                        $conn->close();
+                                    }
+
+                                    
+                                    ?>
 </div> 
 </div>
 </div>
