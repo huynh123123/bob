@@ -55,8 +55,8 @@ require_once '.\layouts\header.php';
             Modern look and quality demo item is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown clothing low-top shirts for
             men.
           </p>
-          <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-          <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+          <a href="#" class="btn btn-warning shadow-0"> Feedback </a>
+          <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Download </a>
         </div>
       </main>
     </div>
