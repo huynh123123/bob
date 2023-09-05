@@ -83,6 +83,9 @@ $sql6 = "CREATE TABLE if not exists Beaches (
     beaches_name VARCHAR(50) NOT NULL,
     beaches_img VARCHAR(255) NOT NULL,
     beaches_img_array VARCHAR(500) NOT NULL,
+    beaches_img_event_array VARCHAR(100) NOT NULL,
+    beaches_img_season_array VARCHAR(100) NOT NULL,
+    beaches_img_local_d_array VARCHAR(100) NOT NULL,
     beaches_rating INT NULL,
     beaches_address VARCHAR(500) NOT NULL,
     beaches_description TEXT NOT NULL,
@@ -144,28 +147,8 @@ if ($conn->query($sql9) === TRUE) {
 } else {
     echo "Error creating table 'Feedbacks': " . $conn->error . "<br>";
 }
-//Gallery
-$sql10 = "CREATE TABLE if not exists Gallery (
-    gallery_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    beaches_id INT NOT NULL,
-    regions_id INT NOT NULL,
-    nation_id INT NOT NULL,
-    gallery_img_beach_array VARCHAR(100) NOT NULL,
-    gallery_img_shop_array VARCHAR(100) NOT NULL,
-    gallery_img_event_array VARCHAR(100) NOT NULL,
-    gallery_img_season_array VARCHAR(100) NOT NULL,
-    gallery_img_local_d_array VARCHAR(100) NOT NULL,
-    FOREIGN KEY (beaches_id) REFERENCES Beaches(beaches_id),
-    FOREIGN KEY (regions_id) REFERENCES Regions(regions_id),
-    FOREIGN KEY (nation_id) REFERENCES Nations(nations_id)
-)";
-if ($conn->query($sql10) === TRUE) {
-    echo "Bảng Gallery đã được tạo thành công.<br>";
-} else {
-    echo "Lỗi khi tạo bảng Gallery: " . $conn->error . "<br>";
-}
 //QnA
-$sql11 = "CREATE TABLE if not exists QnA (
+$sql10 = "CREATE TABLE if not exists QnA (
     QnA_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     QnA_id_question VARCHAR(100) NOT NULL,
     QnA_id_answer VARCHAR(100) NOT NULL

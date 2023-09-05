@@ -36,7 +36,7 @@
 }
 
 .bg-navbar{
-  background-color: aquamarine;
+  background-color: rgb(187, 255, 232);
 
 }
 
@@ -339,4 +339,8 @@ label {
         width: 93%;
         margin: 10px
     }
+}
+
+footer{
+    background-color: #e8ff80;
 }
