@@ -1,8 +1,7 @@
 <?php
 require_once '.\layouts\header.php';
 ?>
-<body >
-  <section>
+<section>
   <div class="section pt-90 pt-lg-70 pt-md-60 pt-sm-55 pt-xs-45 pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
   <div class="container"></div>
   <form class="card register-form">
@@ -21,9 +20,11 @@ require_once '.\layouts\header.php';
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-    <?php
-require_once './layouts/footer.php';
-?>  
     </div>
     </div>
     </section>
+    <div class="main-wrapper">
+<?php
+require_once './layouts/footer.php';
+?> 
+</div>
