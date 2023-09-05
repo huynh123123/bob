@@ -95,7 +95,6 @@ require_once '.\layouts\header.php';
         <div class="main-wrapper">
 <?php
 require_once './layouts/footer.php';
-// this shit is fucking retarded make by me >:(
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["checkboxes"])) {
         $selectedCheckboxes = $_POST["checkboxes"];

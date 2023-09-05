@@ -35,7 +35,6 @@ if($pass < 8){
   echo "<script>alert('The Password is too short');</script>";
 } else {
   try {
-          // Hash password
           $Password_hash = password_hash($pass, PASSWORD_DEFAULT);
 
           $sql = "INSERT INTO list_user (user_name, user_password, user_phone, user_email, user_role) VALUES ('" . $name . "', '" . $Password_hash . "', '" . $num . "', '" . $email . "', 'user')";

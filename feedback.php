@@ -19,7 +19,6 @@ require_once '.\layouts\header.php';
             <label for="beach">Select a beach:</label>
             <select id="beach" name="beach-drop">
             <?php
-              // Query to retrieve beach names from the database
               $query = "SELECT * FROM beaches";
               $result = $conn->query($query);
               if ($result->num_rows > 0) {
@@ -57,7 +56,6 @@ require_once '.\layouts\header.php';
                 echo 'You Are not Logged in!';
               } else {
                 if ($result) {
-                // Check if the cookie values match the database values
                   if ($id == $row["user_id"] &&
                     $username == $row["user_name"] &&
                     $email == $row["user_email"] &&
