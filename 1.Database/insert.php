@@ -16,9 +16,9 @@ $sql1 = 'INSERT INTO Header (header_name, header_link, header_parent) VALUES
         header_parent = VALUES(header_parent)';
 $res = $conn->query($sql1);
 if ($res) {
-    echo 'Data inserted successfully';
+     'Data inserted successfully';
 } else {
-    echo 'Failed to insert data';
+     'Failed to insert data';
 }
 //Home banner
 $sql2 = 'INSERT INTO Home_banner (HB_name, HB_img, HB_description) VALUES
@@ -32,9 +32,9 @@ $sql2 = 'INSERT INTO Home_banner (HB_name, HB_img, HB_description) VALUES
         HB_description = VALUES(HB_description)';
 $res = $conn->query($sql2);
 if ($res) {
-    echo 'Data inserted successfully';
+     'Data inserted successfully';
 } else {
-    echo 'Failed to insert data';
+     'Failed to insert data';
 }
 //User
 $Password_hash = password_hash(1234567, PASSWORD_DEFAULT);
@@ -48,9 +48,9 @@ $sql3 = 'INSERT INTO List_user (user_name, user_password, user_phone, user_email
         user_role = VALUES(user_role)';
 $res = $conn->query($sql3);
 if ($res) {
-    echo 'Data inserted successfully';
+     'Data inserted successfully';
 } else {
-    echo 'Failed to insert data';
+     'Failed to insert data';
 }
 //Nation
 $sql4 = 'INSERT INTO Nations (nations_name) VALUES
@@ -72,9 +72,9 @@ $sql4 = 'INSERT INTO Nations (nations_name) VALUES
         nations_name = VALUES(nations_name)';
 $res = $conn->query($sql4);
 if ($res) {
-    echo 'Data inserted successfully';
+     'Data inserted successfully';
 } else {
-    echo 'Failed to insert data';
+     'Failed to insert data';
 }
 //Region
 $sql5 = 'INSERT INTO Regions (regions_name) VALUES
@@ -86,9 +86,9 @@ $sql5 = 'INSERT INTO Regions (regions_name) VALUES
         regions_name = VALUES(regions_name)';
 $res = $conn->query($sql5);
 if ($res) {
-    echo 'Data inserted successfully';
+     'Data inserted successfully';
 } else {
-    echo 'Failed to insert data';
+     'Failed to insert data';
 }
 //beach
 $sql6 ='INSERT INTO Beaches (regions_id,nations_id,beaches_name,beaches_img,beaches_img_array,beaches_img_event_array,beaches_img_season_array,beaches_img_local_d_array,beaches_rating,beaches_address,beaches_description,beaches_docx_link) VALUES
@@ -126,9 +126,9 @@ $sql6 ='INSERT INTO Beaches (regions_id,nations_id,beaches_name,beaches_img,beac
 ';
 $res = $conn->query($sql6);
 if ($res) {
-    echo 'Data inserted successfully';
+     'Data inserted successfully';
 } else {
-    echo 'Failed to insert data';
+     'Failed to insert data';
 }
 //list transport
 $sql7 = 'INSERT INTO List_transport (transport_name, transport_description)
@@ -143,9 +143,9 @@ VALUES
 
 $res = $conn->query($sql7);
 if ($res) {
-    echo 'Data inserted successfully';
+     'Data inserted successfully';
 } else {
-    echo 'Failed to insert data';
+     'Failed to insert data';
 }
 //QnA
 $sql11 ='INSERT INTO QnA (QnA_id_question, QnA_id_answer) VALUES
@@ -158,9 +158,9 @@ $sql11 ='INSERT INTO QnA (QnA_id_question, QnA_id_answer) VALUES
 ';
 $res = $conn->query($sql11);
 if ($res) {
-    echo 'Data inserted successfully';
+     'Data inserted successfully';
 } else {
-    echo 'Failed to insert data';
+     'Failed to insert data';
 }
 
 $conn->close();

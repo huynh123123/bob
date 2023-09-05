@@ -6,9 +6,9 @@ if ($conn->connect_error) {
 $sql = 'CREATE DATABASE IF NOT EXISTS db_bob';
 $res = $conn->query($sql);
 if ($res) {
-    echo "Database 'db_bob' đã được tạo thành công.";
+     "Database 'db_bob' đã được tạo thành công.";
 } else {
-    echo 'Failed to create database';
+     'Failed to create database';
 }
 $conn->select_db('db_bob');
 mysqli_set_charset($conn, "utf8");
@@ -21,9 +21,9 @@ $sql1 = "CREATE TABLE if not exists Header (
     UNIQUE KEY unique_header_name (header_name)
 )";
 if ($conn->query($sql1) === TRUE) {
-    echo "Bảng Header đã được tạo thành công.<br>";
+     "Bảng Header đã được tạo thành công.<br>";
 } else {
-    echo "Lỗi khi tạo bảng Header: " . $conn->error . "<br>";
+     "Lỗi khi tạo bảng Header: " . $conn->error . "<br>";
 }
 //Home banner
 $sql2 = "CREATE TABLE if not exists Home_banner (
@@ -34,9 +34,9 @@ $sql2 = "CREATE TABLE if not exists Home_banner (
     UNIQUE KEY unique_HB_name (HB_name)
 )";
 if ($conn->query($sql2) === TRUE) {
-    echo "Bảng Home_banner đã được tạo thành công.<br>";
+     "Bảng Home_banner đã được tạo thành công.<br>";
 } else {
-    echo "Lỗi khi tạo bảng Home_banner: " . $conn->error . "<br>";
+     "Lỗi khi tạo bảng Home_banner: " . $conn->error . "<br>";
 }
 //User
 $sql3 = "CREATE TABLE if not exists List_user (
@@ -49,9 +49,9 @@ $sql3 = "CREATE TABLE if not exists List_user (
     UNIQUE KEY unique_user_name (user_name)
 )";
 if ($conn->query($sql3) === TRUE) {
-    echo "Bảng List_user đã được tạo thành công.<br>";
+     "Bảng List_user đã được tạo thành công.<br>";
 } else {
-    echo "Lỗi khi tạo bảng List_user: " . $conn->error . "<br>";
+     "Lỗi khi tạo bảng List_user: " . $conn->error . "<br>";
 }
 //Nations
 $sql4 = "CREATE TABLE if not exists Nations (
@@ -60,9 +60,9 @@ $sql4 = "CREATE TABLE if not exists Nations (
     UNIQUE KEY unique_nations_name (nations_name)
 )";
 if ($conn->query($sql4) === TRUE) {
-    echo "Bảng Nations đã được tạo thành công.<br>";
+     "Bảng Nations đã được tạo thành công.<br>";
 } else {
-    echo "Lỗi khi tạo bảng Nations: " . $conn->error . "<br>";
+     "Lỗi khi tạo bảng Nations: " . $conn->error . "<br>";
 }
 //Regions
 $sql5 = "CREATE TABLE if not exists Regions (
@@ -71,9 +71,9 @@ $sql5 = "CREATE TABLE if not exists Regions (
     UNIQUE KEY unique_regions_name (regions_name)
 )";
 if ($conn->query($sql5) === TRUE) {
-    echo "Bảng Regions đã được tạo thành công.<br>";
+     "Bảng Regions đã được tạo thành công.<br>";
 } else {
-    echo "Lỗi khi tạo bảng Regions: " . $conn->error . "<br>";
+     "Lỗi khi tạo bảng Regions: " . $conn->error . "<br>";
 }
 //Beaches
 $sql6 = "CREATE TABLE if not exists Beaches (
@@ -96,9 +96,9 @@ $sql6 = "CREATE TABLE if not exists Beaches (
 )";
 //Transports
 if ($conn->query($sql6) === TRUE) {
-    echo "Bảng Beaches đã được tạo thành công.<br>";
+     "Bảng Beaches đã được tạo thành công.<br>";
 } else {
-    echo "Lỗi khi tạo bảng Beaches: " . $conn->error . "<br>";
+     "Lỗi khi tạo bảng Beaches: " . $conn->error . "<br>";
 }
 
 $sql7 = "CREATE TABLE if not exists List_transport (
@@ -108,9 +108,9 @@ $sql7 = "CREATE TABLE if not exists List_transport (
     UNIQUE KEY unique_transport_name (transport_name)
 )";
 if ($conn->query($sql7) === TRUE) {
-    echo "Bảng List_transport đã được tạo thành công.<br>";
+     "Bảng List_transport đã được tạo thành công.<br>";
 } else {
-    echo "Lỗi khi tạo bảng List_transport: " . $conn->error . "<br>";
+     "Lỗi khi tạo bảng List_transport: " . $conn->error . "<br>";
 }
 //Booktour
 $sql8 = "CREATE TABLE if not exists Booktours (
@@ -127,9 +127,9 @@ $sql8 = "CREATE TABLE if not exists Booktours (
     UNIQUE KEY unique_booktours_name (booktours_name)
 )";
 if ($conn->query($sql8) === TRUE) {
-    echo "Bảng Booktours đã được tạo thànhcông.<br>";
+     "Bảng Booktours đã được tạo thànhcông.<br>";
 } else {
-    echo "Lỗi khi tạo bảng Booktours: " . $conn->error . "<br>";
+     "Lỗi khi tạo bảng Booktours: " . $conn->error . "<br>";
 }
 //Feedback
 $sql9 = "CREATE TABLE if not exists Feedbacks (
@@ -143,9 +143,9 @@ $sql9 = "CREATE TABLE if not exists Feedbacks (
     FOREIGN KEY (user_id) REFERENCES List_user(user_id)
 )";
 if ($conn->query($sql9) === TRUE) {
-    echo "Table 'Feedbacks' created successfully.<br>";
+     "Table 'Feedbacks' created successfully.<br>";
 } else {
-    echo "Error creating table 'Feedbacks': " . $conn->error . "<br>";
+     "Error creating table 'Feedbacks': " . $conn->error . "<br>";
 }
 //QnA
 $sql10 = "CREATE TABLE if not exists QnA (
@@ -154,9 +154,9 @@ $sql10 = "CREATE TABLE if not exists QnA (
     QnA_id_answer VARCHAR(100) NOT NULL
 )";
 if ($conn->query($sql10) === TRUE) {
-    echo "Bảng QnA đã được tạo thành công.<br>";
+     "Bảng QnA đã được tạo thành công.<br>";
 } else {
-    echo "Lỗi khi tạo bảng QnA: " . $conn->error . "<br>";
+     "Lỗi khi tạo bảng QnA: " . $conn->error . "<br>";
 }
 //End
 $conn->close();

@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
       $name = $row["beaches_name"];
       $rate = $row["beaches_rating"];
       $desc = $row["beaches_description"];
+      $docx = $row["beaches_docx_link"];
       $imagePaths = $row["beaches_img_array"];
       $imageArray = explode(",", $imagePaths);
 
@@ -82,7 +83,7 @@ echo  "</div>
       " . $desc . "
       </p>
       <a href='feedback.php' class='btn btn-warning shadow-0'> Feedback </a>
-      <a href='' class='btn btn-primary shadow-0'> <i class='me-1 fa fa-shopping-basket'></i> Download </a>
+      <a href='" . $docx   . "' class='btn btn-primary shadow-0'> <i class='me-1 fa fa-shopping-basket'></i> Download </a>
     </div>
   </main>
 </div>
