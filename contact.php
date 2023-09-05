@@ -1,10 +1,8 @@
 <?php
 require_once '.\layouts\header.php';
 ?>
-<body >
-<div>
-<section class="py-5 text-center container banner-pp">
-  <div class="row py-lg-5">
+<section class="py-5 container ">
+  <div class="row py-lg-5 text-center banner-pp">
     <div class="col-lg-6 col-md-8 mx-auto">
       <h1 class="fw-light">Contact us</h1>
       <p class="lead text-body-secondary">"Where you can contact us."</p>
@@ -12,11 +10,10 @@ require_once '.\layouts\header.php';
       </p>
     </div>
   </div>
-</section>
-<section class="container">
-  <div>
+  <div class="container">
+    <div>
       <h2 style="margin-top: 20px; padding-bottom: 20px; text-transform: uppercase; background-color: antiquewhite; text-align: center; line-height: 30px; padding-top: 15px; border-radius: 20px; margin-bottom: 20px;">Contact us</h2>
-  </div>
+    </div>
     <div class="row">
       <div class="col-6">
         <div style="margin-bottom: 15px; padding-bottom: 15px;"><strong>Social Network</strong></div>
@@ -26,26 +23,26 @@ require_once '.\layouts\header.php';
           </div>
           <div>
             <a href="#" class="fa fa-instagram"></a>
-            <span>_glx.23_</span>
+            <span>_bob.23_</span>
           </div>
           <div>
             <a href="#" class="fa fa-twitter"></a>
-            <span>@galaxycat</span>
+            <span>@bob2023</span>
           </div>
           <div>
             <a href="#" class="fa fa-youtube"></a>
-            <span>Galaxy Studio</span>
+            <span>Beauty of beaches</span>
           </div>
       </div>
       <div class="col-6">
         <div style="margin-bottom: 15px; padding-bottom: 15px;"><strong>Contact Info</strong></div>
           <div>
             <i style="font-size:24px" class="fa">&#xf0e0;</i>
-            Email: galaxy@gmail.com
+            Email: bob@gmail.com
           </div>
           <div>
             <i style="font-size:24px" class="fa">&#xf0e0;</i>
-            Email: nikocute@gmail.com
+            Email: bobqna@gmail.com
           </div>
           <div>
             <i style="font-size:24px" class="fa">&#xf2b9;</i>
@@ -64,7 +61,6 @@ require_once '.\layouts\header.php';
     </div>
   </div>
 </section>
-    <?php
+<?php
 require_once './layouts/footer.php';
 ?>  
-</div>

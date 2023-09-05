@@ -1,7 +1,6 @@
 <?php
 require_once '.\layouts\header.php';
 ?>
-
 <section class="py-5 container ">
     <div class="row py-lg-5 text-center banner-pp">
       <div class="col-lg-6 col-md-8 mx-auto">
@@ -19,7 +18,6 @@ require_once '.\layouts\header.php';
             <img src="./assets/img/logo.png" class="img-thumbnail" alt="...">
           </div>
         </div>
-      
         <div class="card" style="width: 50%;">
           <div class="card-body">
             <h6 class="card-text" style="font-size: 25px;">"Welcome to Beauty of Beaches, a passionate community dedicated to celebrating the exquisite beauty and allure of beaches worldwide. Our mission is to inspire and guide beach lovers like you to explore the diverse coastal landscapes that our planet has to offer.</h6>
@@ -30,10 +28,9 @@ require_once '.\layouts\header.php';
             </br>
           </div>
         </div>
-
         <div class="card" style="width: 50%;">
           <div class="card-body">
-          <h6 class="card-text" style="font-size: 25px;">We understand that each beach has its own unique charm, and that's why we go beyond the surface to uncover the hidden gems and lesser-known coastal treasures. Our expertly crafted travel guides offer insights into the local culture, activities, and attractions, ensuring that your beach experience is not only visually breathtaking but also culturally enriching.</h6>
+            <h6 class="card-text" style="font-size: 25px;">We understand that each beach has its own unique charm, and that's why we go beyond the surface to uncover the hidden gems and lesser-known coastal treasures. Our expertly crafted travel guides offer insights into the local culture, activities, and attractions, ensuring that your beach experience is not only visually breathtaking but also culturally enriching.</h6>
             </br>
             <h6 class="card-text" style="font-size: 25px;">At Beauty of Beaches, we also value the power of community. We invite you to join our passionate community of beach enthusiasts, where you can connect with fellow travelers, share your own beach stories and recommendations, and engage in meaningful conversations. Through our interactive forums and comment sections, you can seek advice, inspire others, and foster a sense of camaraderie among beach lovers from around the world.</h6>
             </br>
@@ -45,34 +42,34 @@ require_once '.\layouts\header.php';
             <img src="./assets/img/icon.png" class="img-thumbnail" alt="...">
           </div>
         </div>
+      </div>
+      <div class="container marketing">
+        <div class="row py-5">
+          <p class="text-center fs-2 py-5">About our team:</p>
+          <div class="col-md-3 mb-20">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+            <h2 class="fw-normal">HA TRAN TONG NGAN</h2>
+            <p>Coder</p>
+          </div>
+        <div class="col-md-3">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+          <h2 class="fw-normal">MINH TO NHAT</h2>
+          <p>Search infomation</p>
+        </div>
+        <div class="col-md-3">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+          <h2 class="fw-normal">HUYNH MAI NGOC</h2>
+          <p>Coder</p>
+        </div>
+        <div class="col-md-3">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+          <h2 class="fw-normal">QUAN NGUYEN ANH</h2>
+          <p>Doing nothing ,just chill.</p>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="container marketing">
-<div class="row py-5">
-  <p class="text-center fs-2 py-5">About our team:</p>
-  <div class="col-md-3 mb-20">
-    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-    <h2 class="fw-normal">HA TRAN TONG NGAN</h2>
-    <p>Coder</p>
-  </div>
-  <div class="col-md-3">
-    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-    <h2 class="fw-normal">MINH TO NHAT</h2>
-    <p>Search infomation</p>
-  </div>
-  <div class="col-md-3">
-    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-    <h2 class="fw-normal">HUYNH MAI NGOC</h2>
-    <p>Coder</p>
-  </div>
-  <div class="col-md-3">
-    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-    <h2 class="fw-normal">QUAN NGUYEN ANH</h2>
-    <p>Doing nothing ,just chill.</p>
-  </div>
-</div>
-  </section>
-
-  <?php
+</section>
+<?php
 require_once './layouts/footer.php';
 ?>  

@@ -48,8 +48,6 @@ header("Location: index.php");
   // $conn->close();
   }
 ?>
-
-<body>
   <section>
     <div class="section pt-90 pt-lg-70 pt-md-60 pt-sm-55 pt-xs-45 pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
       <div class="container">
@@ -67,13 +65,12 @@ header("Location: index.php");
           <div class="text">Forgot the password?<a href="forgotpassword.php">Click here</a></div>
           <div class="text">Don't have an account?<a href="sign-up.php">Click here</a></div>
         </form>
-        
       </div>
-      <?php
-require_once './layouts/footer.php';
-?>
     </div>
   </section>
-
-
+<div class="main-wrapper">
+<?php
+require_once './layouts/footer.php';
+?> 
+</div>
 

@@ -153,7 +153,7 @@ $sql10 = "CREATE TABLE if not exists QnA (
     QnA_id_question VARCHAR(100) NOT NULL,
     QnA_id_answer VARCHAR(100) NOT NULL
 )";
-if ($conn->query($sql11) === TRUE) {
+if ($conn->query($sql10) === TRUE) {
     echo "Bảng QnA đã được tạo thành công.<br>";
 } else {
     echo "Lỗi khi tạo bảng QnA: " . $conn->error . "<br>";
