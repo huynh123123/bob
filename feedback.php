@@ -44,10 +44,6 @@ require_once '.\layouts\header.php';
               $password = "";
               $dbname = "db_bob";
               $exist = false;
-              $conn = new mysqli($servername, $dbusername, $password, $dbname);
-              if ($conn->connect_error) {
-                die('Connection failed: ' . $conn->connect_error);
-              } 
               if (isset($_COOKIE['user'])) {    
                 $cookieData = json_decode($_COOKIE['user'], true);
                 $id = $cookieData['id'];

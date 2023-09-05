@@ -129,7 +129,6 @@ require_once '.\layouts\header.php';
                       break;
                     }
                 }
-              $conn->close();
               }
           ?>
         </div>

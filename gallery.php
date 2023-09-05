@@ -16,105 +16,24 @@ require_once '.\layouts\header.php';
     <div class="album py-5 ">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col-lg-3 col-md-4 col-sm-6">            
-            <div class="card mb-40" style="width: 18rem;">
-              <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class=" card-body mb-40 py-3">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-sm-6">            
-            <div class="card mb-40" style="width: 18rem;">
-              <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class=" card-body mb-40 py-3">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-sm-6">            
-            <div class="card mb-40" style="width: 18rem;">
-              <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class=" card-body mb-40 py-3">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-sm-6">            
-            <div class="card mb-40" style="width: 18rem;">
-              <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class=" card-body mb-40 py-3">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-    </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col-lg-3 col-md-4 col-sm-6">            
-            <div class="card mb-40" style="width: 18rem;">
-              <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class=" card-body mb-40 py-3">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">            
-            <div class="card mb-40" style="width: 18rem;">
-              <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class=" card-body mb-40 py-3">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-sm-6">            
-            <div class="card mb-40" style="width: 18rem;">
-                <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-                  <div class=" card-body mb-40 py-3">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+        <?php
+          $query = "SELECT * FROM gallery";
+          $result = mysqli_query($conn, $query);
+              if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                  $link = $row["gallery_img_beach_array"];
+                  echo '<div class="col-lg-3 col-md-4 col-sm-6">            
+                  <div class="card mb-40" style="width: 18rem;">
+                    <img src="' . $link . '" class="card-img-top" alt="...">
+                    <div class=" card-body mb-40 py-3">
+                      <a href="#" class="btn btn-primary">More info!</a>
+                    </div>
                   </div>
-                </div>
-              </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">            
-              <div class="card mb-40" style="width: 18rem;">
-              <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class=" card-body mb-40 py-3">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            </div>
-          </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col-lg-3 col-md-4 col-sm-6">            
-            <div class="card mb-40" style="width: 18rem;">
-              <img src="./assets/img/banner/bb1.png" class="card-img-top" alt="...">
-              <div class=" card-body mb-40 py-3">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-              </div>
-            </div>
-          </div>
+                </div>';
+                }
+              $conn->close();
+              }
+          ?>
         </div>    
       </div>
       </div>

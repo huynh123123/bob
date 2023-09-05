@@ -17,18 +17,42 @@ require_once '.\layouts\header.php';
                     <div class="d-sm-flex">
                         <div class="me-sm-2">
                             <div id="filter" class="p-2 bg-light ms-md-4 ms-sm-2 border">
-                                <div class="border-bottom h5 text-uppercase">Filter By</div>
+                            <form action="beaches.php" method="post">
+                                <div class="border-bottom h5">Filter By</div>
                                 <div class="box border-bottom">
-                                    <div class="box-label text-uppercase d-flex align-items-center">Nation</div>
+                                    <div class="box-label d-flex align-items-center">Region</div>
                                     <div id="inner-box" class="collapse show">
-                                        
+                                    <?php
+                                      $sql = 'SELECT * FROM regions';
+                                      $result = mysqli_query($conn, $sql);  
+                                      if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            $rname = $row["regions_name"];
+                                            $rid = $row["regions_id"];
+                                            echo '<input type="checkbox" class="form-check-input" id="' . $rid . '-' . $rname . '" name="checkboxes[]" value="' . $rid . '-' . $rname . '">
+                                                  <label class="form-check-label" for="' . $rid . '-' . $rname . '">' . $rname . '</label>';
+                                        }
+                                    }
+                                    ?>
                                     </div>
                                 </div>
                                 <div class="box border-bottom">
-                                    <div class="box-label text-uppercase d-flex align-items-center">Region </div>
+                                    <div class="box-labe d-flex align-items-center">Nations</div>
+                                    <?php
+                                      $sql = 'SELECT * FROM nations';
+                                      $result = mysqli_query($conn, $sql);  
+                                      if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                        $name = $row["nations_name"];
+                                    echo '<input type="checkbox" class="form-check-input" id="' . $name . '" name="' . $name . '">
+                                    <label class="form-check-label" for="' . $name . '">' . $name . '</label>';
+                                        }}
+                                    ?>
                                 </div>
+                                <button type="submit" class="btn btn-primary" required>Apply</button>
                                 <div class="box">
                                 </div>
+                            </form>
                             </div>
                         </div>
                         <div class="bg-white p-2 border" id="beachs">
@@ -71,5 +95,22 @@ require_once '.\layouts\header.php';
         <div class="main-wrapper">
 <?php
 require_once './layouts/footer.php';
+// this shit is fucking retarded make by me >:(
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["checkboxes"])) {
+        $selectedCheckboxes = $_POST["checkboxes"];
+        $rfilter = true;
+
+        $conditions = array();
+        foreach ($selectedCheckboxes as $selectedCheckbox) {
+            $conditions[] = "regions_id = '" . mysqli_real_escape_string($conn, $selectedCheckbox) . "'";
+            $query = "SELECT * FROM beaches WHERE ";
+        }
+
+        $query .= implode(" OR ", $conditions);
+
+        $result = mysqli_query($conn, $query);
+    }
+}
 ?> 
 </div>
