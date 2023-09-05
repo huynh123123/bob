@@ -109,6 +109,7 @@ require_once '.\layouts\header.php';
             $count = 0;
               if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                  $id = $row["beaches_id"];
                   $name = $row["beaches_name"];
                   $link = $row["beaches_img"];
                   $rate = $row["beaches_rating"];
@@ -119,7 +120,7 @@ require_once '.\layouts\header.php';
                   echo '<div class="card-body">';
                   echo '<h5 class="card-title">' . $name . '</h5>';
                   echo '<p class="card-text expandable truncate">Rating: ' . $rate . '</p>';
-                  echo '<a href="#" class="btn btn-primary">More info!</a>';
+                  echo '<a href="beach.php?beach_id=' . $id . '" class="btn btn-primary">More info!</a>';
                   echo '</div>';
                   echo '</div>';
                   echo '</div>';
