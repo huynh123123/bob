@@ -5,6 +5,17 @@ require_once '.\layouts\header.php';
 <section class='py-5'>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  if (isset($_GET['search'])) {
+    $text = $_GET['search'];
+
+    $squery = "SELECT beaches_name FROM beaches";
+    $rquery = mysqli_query($conn, $squery);
+
+    while ($row = mysqli_fetch_assoc($rquery)) {
+        $word = $row['beaches_name'];
+            echo $word;
+    }
+}
   if (isset($_GET['beach_id'])) {
     $beachId = $_GET['beach_id'];
 
@@ -71,7 +82,7 @@ echo  "</div>
       " . $desc . "
       </p>
       <a href='feedback.php' class='btn btn-warning shadow-0'> Feedback </a>
-      <a href='assets/docx' class='btn btn-primary shadow-0'> <i class='me-1 fa fa-shopping-basket'></i> Download </a>
+      <a href='' class='btn btn-primary shadow-0'> <i class='me-1 fa fa-shopping-basket'></i> Download </a>
     </div>
   </main>
 </div>

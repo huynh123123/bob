@@ -17,19 +17,29 @@ require_once '.\layouts\header.php';
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <?php
-          $query = "SELECT * FROM gallery";
+          $query = "SELECT * FROM beaches";
           $result = mysqli_query($conn, $query);
               if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                  $link = $row["gallery_img_beach_array"];
-                  echo '<div class="col-lg-3 col-md-4 col-sm-6">            
-                  <div class="card mb-40" style="width: 18rem;">
-                    <img src="' . $link . '" class="card-img-top" alt="...">
-                    <div class=" card-body mb-40 py-3">
-                      <a href="#" class="btn btn-primary">More info!</a>
-                    </div>
-                  </div>
-                </div>';
+                  $nid = $row["nations_id"];
+                  $link = $row["beaches_img"];
+                  $name = $row["beaches_name"];
+                  $sql3 = 'SELECT * FROM nations WHERE nations_id="' . $nid . '"';
+      $result3 = mysqli_query($conn, $sql3);  
+      $nidname2 = $result3->fetch_assoc();
+      $nidname = $nidname2["nations_name"];
+      echo '<div class="row-md-5">';
+      echo '<div class="col-lg-3 col-md-4 col-sm-6 py-3">';
+      echo '<div class="card mb-40 py-3 expandable-card" style="width: 18rem;">';
+      echo '<img src="' . $link . '" class="card-img-top" alt="...">';
+      echo '<div class="card-body">';
+      echo '<h5 class="card-title">' . $name . '</h5>';
+      echo '<p class="card-text">' . $nidname . '</p>';
+      echo '<a href="#" class="btn btn-primary">More info!</a>';
+      echo '</div>';
+      echo '</div>';
+      echo '</div>';
+      echo '</div>';
                 }
               $conn->close();
               }
