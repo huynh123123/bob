@@ -1,4 +1,4 @@
-.container.gallery-container {
+.gallery-container {
     background-color: #fff;
     color: #35373a;
     min-height: 100vh;
@@ -48,11 +48,9 @@
 
 
 @media(max-width: 768px) {
-    body {
-        padding: 0;
-    }
+    
 
-    .container.gallery-container {
+    .gallery-container {
         border-radius: 0;
     }
 }
