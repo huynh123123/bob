@@ -11,6 +11,10 @@
   <p class="text-center text-body-secondary">&copy; 2023----Group 4</p>
 </footer>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src="assets/js/bootstrap.bundle.js"></script>
 <script src="assets/js/app.js"></script>
