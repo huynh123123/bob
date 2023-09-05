@@ -1,8 +1,8 @@
 <?php
 require_once '.\layouts\header.php';
 ?>
-        <section class="py-5 text-center container banner-pp">
-            <div class="row py-lg-5">
+      <section class="py-5 container ">
+  <div class="row py-lg-5 text-center banner-pp">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light">Beaches</h1>
                     <p class="lead text-body-secondary">Find a great place for your vacation.</p>
@@ -21,41 +21,7 @@ require_once '.\layouts\header.php';
                                 <div class="box border-bottom">
                                     <div class="box-label text-uppercase d-flex align-items-center">Nation</div>
                                     <div id="inner-box" class="collapse show">
-                                        <div class="my-1">
-                                            <label class="tick">Less than 2000 <input type="checkbox" checked="checked">
-                                                <span class="check"></span>
-                                            </label>
-                                        </div>
-                                        <div class="my-1">
-                                            <label class="tick">2000 - 3000 <input type="checkbox">
-                                                <span class="check"></span>
-                                            </label>
-                                        </div>
-                                        <div class="my-1">
-                                            <label class="tick">3000 - 4500 <input type="checkbox">
-                                                <span class="check"></span>
-                                            </label>
-                                        </div>
-                                        <div class="my-1">
-                                            <label class="tick">4500 - 6000 <input type="checkbox">
-                                                <span class="check"></span>
-                                            </label>
-                                        </div>
-                                        <div class="my-1">
-                                            <label class="tick">6000 - 8000 <input type="checkbox">
-                                                <span class="check"></span>
-                                            </label>
-                                        </div>
-                                        <div class="my-1">
-                                            <label class="tick">8000 -10,000 <input type="checkbox" checked>
-                                                <span class="check"></span>
-                                            </label>
-                                        </div>
-                                        <div class="my-1">
-                                            <label class="tick">10,000 and Above <input type="checkbox">
-                                                <span class="check"></span>
-                                            </label>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="box border-bottom">
@@ -86,7 +52,7 @@ require_once '.\layouts\header.php';
                                                     $link = $row["beaches_img"];
                                                     $rate = $row["beaches_rating"];
                                                     echo '
-                                                    <div class="card mb-3" style="max-width: 540px;">
+                                                    <div class="card mb-4" style="max-width: 100%;">
                                                         <div class="row g-0">
                                                         <div class="col-md-4">
                                                 <img src='. $link .' class="img-fluid rounded-start" alt="...">
@@ -95,7 +61,7 @@ require_once '.\layouts\header.php';
                                     <div class="card-body">
                                                     <h5 class="card-title">"' . $name . '" </h5>
                                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                                <a href="#" class="btn btn-primary">More info!</a>
                                             </div>
                                                                             </div>
                                     </div>
@@ -109,7 +75,10 @@ require_once '.\layouts\header.php';
                                             ?> </div>
                         </div> 
                     </div>
-    <?php
-    require_once './layouts/footer.php';
-    ?>
+    
         </section>
+        <div class="main-wrapper">
+<?php
+require_once './layouts/footer.php';
+?> 
+</div>

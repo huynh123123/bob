@@ -2,8 +2,8 @@
 require_once '.\layouts\header.php';
 ?>
   <div>
-    <section class="py-5 text-center container banner-pp">
-      <div class="row py-lg-5">
+  <section class="py-5 container ">
+  <div class="row py-lg-5 text-center banner-pp">
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="fw-light">Gallery of beaches</h1>
           <p class="lead text-body-secondary">Where you can find all picture of the sea and sand.</p>

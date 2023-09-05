@@ -53,7 +53,7 @@ require_once '.\layouts\header.php';
                                             $link = $row["beaches_img"];
                                             $rate = $row["beaches_rating"];
                                             $link = $row["beaches_img_arr"];
-                                            echo '<h5 class="title text-dark"></h5>'
+                                            echo '<h5 class="title text-dark"></h5>
                                             <p>Nations</p>
                                             <p>Regions</p>
                                             <div class="d-flex flex-row my-3">
