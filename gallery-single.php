@@ -1,13 +1,6 @@
 <?php
 require_once '.\layouts\header.php';
 ?>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
-    <link rel="stylesheet" href="gallery-grid.css">
-</head>
-<body>
             <?php
               if (isset($_GET['id'])) {
                 $id = $_GET['id'];
@@ -123,11 +116,7 @@ echo '<div class="container gallery-container">
 </body>';
 }
             ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-<script>
-    baguetteBox.run('.tz-gallery');
-</script>
-</body>
+
   <?php
 require_once './layouts/footer.php';
 ?> 
