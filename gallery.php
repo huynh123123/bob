@@ -21,6 +21,7 @@ require_once '.\layouts\header.php';
           $result = mysqli_query($conn, $query);
               if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                  $id = $row["beaches_id"];
                   $nid = $row["nations_id"];
                   $link = $row["beaches_img"];
                   $name = $row["beaches_name"];
@@ -35,7 +36,7 @@ require_once '.\layouts\header.php';
       echo '<div class="card-body">';
       echo '<h5 class="card-title">' . $name . '</h5>';
       echo '<p class="card-text">' . $nidname . '</p>';
-      echo '<a href="#" class="btn btn-primary">More info!</a>';
+      echo '<a href="gallery-single.php?id=' . $id . '" class="btn btn-primary">More info!</a>';
       echo '</div>';
       echo '</div>';
       echo '</div>';
