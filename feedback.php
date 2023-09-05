@@ -77,7 +77,7 @@ require_once '.\layouts\header.php';
                     $email == $row["user_email"] &&
                     $role == $row["user_role"]) {
                     $exist = true;
-                    "User: " . $username;
+                    echo "User: " . $username;
                   } else {
                     echo 'You Are not Logged in!';
                   }
