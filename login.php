@@ -1,10 +1,6 @@
 <?php
 require_once './layouts/header.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
 
   $email = $_POST['email'];
   $pass = $_POST['password'];
@@ -46,7 +42,7 @@ header("Location: index.php");
     <div class="section pt-90 pt-lg-70 pt-md-60 pt-sm-55 pt-xs-45 pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
       <div class="container">
       <form class="card login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-          <p class="text-center fs-2">LOGIN</p>
+          <p class="text-center fs-2">Login</p>
           <div class="form-fild">
             <label for="email" class="form-label">Email address <span class="required">*</span></label>
             <input type="email" name="email" placeholder="Your Email" required>

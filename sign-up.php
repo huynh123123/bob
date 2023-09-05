@@ -5,7 +5,7 @@ require_once '.\layouts\header.php';
     <div class="section pt-90 pt-lg-70 pt-md-60 pt-sm-55 pt-xs-45 pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
       <div class="container">
       <form class="card register-form" action="sign-up.php" method="post">
-        <p class="text-center fs-2">SIGN IN</p>
+        <p class="text-center fs-2">Sign Up</p>
         <div class="form-fild">
           <label for="username" class="form-label" >Name <span class="required">*</span></label>
           <input type="text" name="name" placeholder="Your Name" required>
