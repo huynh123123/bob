@@ -1,11 +1,5 @@
 <?php
 require_once './layouts/header.php';
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_bob";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $conn = new mysqli($servername, $username, $password, $dbname);
   if ($conn->connect_error) {

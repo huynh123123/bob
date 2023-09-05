@@ -1,3 +1,6 @@
+<?php
+require_once '.\1.Database\connection.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,14 +27,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <?php
-                  $servername = "localhost";
-                  $dbusername = "root";
-                  $password = "";
-                  $dbname = "db_bob";
-                  $conn = new mysqli($servername, $dbusername, $password, $dbname);
-                  if ($conn->connect_error) {
-                    die('Connection failed: ' . $conn->connect_error);
-                  }
+              $conn = connect();
                   $query = "SELECT * FROM header";
                   $result = mysqli_query($conn, $query);  
                   if ($result->num_rows > 0) {

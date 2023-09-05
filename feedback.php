@@ -19,16 +19,6 @@ require_once '.\layouts\header.php';
             <label for="beach">Select a beach:</label>
             <select id="beach" name="beach-drop">
             <?php
-              $host = 'localhost';
-              $username = 'root';
-              $password = '';
-              $database = 'db_bob';
-              // Create a new mysqli connection
-              $conn = new mysqli($host, $username, $password, $database);
-              // Check if the connection was successful
-              if ($conn->connect_error) {
-                die('Connection failed: ' . $conn->connect_error);
-              }         
               // Query to retrieve beach names from the database
               $query = "SELECT * FROM beaches";
               $result = $conn->query($query);

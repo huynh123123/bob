@@ -33,22 +33,14 @@ require_once '.\layouts\header.php';
                         </div>
                         <div class="bg-white p-2 border" id="beachs">
                             <div class="beach py-2 px-2 pb-4 border-bottom"> <?php
-                                            $servername = "localhost";
-                                            $username = "root";
-                                            $password = "";
-                                            $dbname = "db_bob";
-                                            
-                                            $conn = new mysqli($servername, $username, $password, $dbname);
-                                            if ($conn->connect_error) {
-                                                die("Connection failed: " . $conn->connect_error);
-                                            }
-
                                             $query = "SELECT * FROM beaches";
                                             $result = mysqli_query($conn, $query);
 
                                             if ($result->num_rows > 0) {
                                                 while ($row = $result->fetch_assoc()) {
+                                                    $id = $row["beaches_id"];
                                                     $name = $row["beaches_name"];
+                                                    $desc = $row["beaches_description"];
                                                     $link = $row["beaches_img"];
                                                     $rate = $row["beaches_rating"];
                                                     echo '
@@ -59,16 +51,15 @@ require_once '.\layouts\header.php';
                                                     </div>
                                             <div class="col-md-8">
                                     <div class="card-body">
-                                                    <h5 class="card-title">"' . $name . '" </h5>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <a href="#" class="btn btn-primary">More info!</a>
+                                                    <h5 class="card-title">' . $name . ' </h5>
+                                                <p class="card-text">' . $desc . '</p>
+                                                <a href="beach.php?beach_id=' . $id . '" class="btn btn-primary">More info!</a>
                                             </div>
                                                                             </div>
                                     </div>
                                             </div>
                                                     ';
                                                 }
-                                                $conn->close();
                                             }
 
                                             

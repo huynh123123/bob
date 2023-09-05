@@ -104,14 +104,6 @@ require_once '.\layouts\header.php';
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-10 mb-6">
           <?php
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "db_bob";
-          $conn = new mysqli($servername, $username, $password, $dbname);
-            if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-            }
           $query = "SELECT * FROM beaches";
           $result = mysqli_query($conn, $query);
             $count = 0;
@@ -146,7 +138,7 @@ require_once '.\layouts\header.php';
     <div class="card mb-3" style="max-width: 100%;">
       <div class="row g-3">
         <div class="col-md-5">
-          <iframe width="500" height="320" src="https://www.youtube.com/embed/RvZFYE5jo1M?si=HBBwit7t-s4v1jFd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe width="500" height="320" src="#" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <div class="col-md-7">
           <div class="card-body">
