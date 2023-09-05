@@ -27,6 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
       $name = $row["beaches_name"];
       $rate = $row["beaches_rating"];
       $desc = $row["beaches_description"];
+      $imagePaths = $row["beaches_img_array"];
+      $imageArray = explode(",", $imagePaths);
+
       echo "<div class='container'>
 <div class='row gx-5'>
   <aside class='col-lg-6'>
@@ -35,23 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         <img style='max-width: 100%; max-height: 100vh; margin: auto;' class='rounded-4 fit' src='" . $img . "' />
       </a>
     </div>
-    <div class='d-flex justify-content-center mb-3'>
-      <a data-fslightbox='mygalley' class='border mx-1 rounded-2' target='_blank' data-type='image' href='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big1.webp' class='item-thumb'>
-        <img width='60' height='60' class='rounded-2' src='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big1.webp' />
-      </a>
-      <a data-fslightbox='mygalley' class='border mx-1 rounded-2' target='_blank' data-type='image' href='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big2.webp' class='item-thumb'>
-        <img width='60' height='60' class='rounded-2' src='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big2.webp' />
-      </a>
-      <a data-fslightbox='mygalley' class='border mx-1 rounded-2' target='_blank' data-type='image' href='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big3.webp' class='item-thumb'>
-        <img width='60' height='60' class='rounded-2' src='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big3.webp' />
-      </a>
-      <a data-fslightbox='mygalley' class='border mx-1 rounded-2' target='_blank' data-type='image' href='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big4.webp' class='item-thumb'>
-        <img width='60' height='60' class='rounded-2' src='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big4.webp' />
-      </a>
-      <a data-fslightbox='mygalley' class='border mx-1 rounded-2' target='_blank' data-type='image' href='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp' class='item-thumb'>
-        <img width='60' height='60' class='rounded-2' src='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp' />
-      </a>
-    </div>
+    <div class='d-flex justify-content-center mb-3'>";
+    foreach ($imageArray as $imagePath) {
+      echo "<a data-fslightbox='mygalley' class='border mx-1 rounded-2' target='_blank' data-type='image' href='" . trim($imagePath) . "' class='item-thumb'>
+      <img width='60' height='60' class='rounded-2' src='" . trim($imagePath) . "'/>
+    </a>";
+  }
+echo  "</div>
     <!-- thumbs-wrap.// -->
     <!-- gallery-wrap .end// -->
   </aside>
@@ -78,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
       " . $desc . "
       </p>
       <a href='feedback.php' class='btn btn-warning shadow-0'> Feedback </a>
-      <a href='#' class='btn btn-primary shadow-0'> <i class='me-1 fa fa-shopping-basket'></i> Download </a>
+      <a href='assets/docx' class='btn btn-primary shadow-0'> <i class='me-1 fa fa-shopping-basket'></i> Download </a>
     </div>
   </main>
 </div>
