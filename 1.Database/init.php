@@ -1,7 +1,7 @@
 <?php
 $conn = new mysqli('localhost', 'root', '');
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+     die("Connection failed: " . $conn->connect_error);
 }
 $sql = 'CREATE DATABASE IF NOT EXISTS db_bob';
 $res = $conn->query($sql);
