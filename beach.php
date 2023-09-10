@@ -5,17 +5,6 @@ require_once '.\layouts\header.php';
 <section class='py-5'>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  if (isset($_GET['search'])) {
-    $text = $_GET['search'];
-
-    $squery = "SELECT beaches_name FROM beaches";
-    $rquery = mysqli_query($conn, $squery);
-
-    while ($row = mysqli_fetch_assoc($rquery)) {
-        $word = $row['beaches_name'];
-            echo $word;
-    }
-}
   if (isset($_GET['beach_id'])) {
     $beachId = $_GET['beach_id'];
 
