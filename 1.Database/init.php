@@ -138,7 +138,7 @@ $sql9 = "CREATE TABLE if not exists Feedbacks (
     feedbacks_created_at TIMESTAMP NOT NULL,
     feedbacks_rating INT NULL,
     user_id INT NOT NULL,
-    feedbacks_content VARCHAR(100) NOT NULL,
+    feedbacks_content VARCHAR(500) NOT NULL,
     FOREIGN KEY (beaches_id) REFERENCES Beaches(beaches_id),
     FOREIGN KEY (user_id) REFERENCES List_user(user_id)
 )";

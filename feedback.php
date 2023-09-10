@@ -109,10 +109,10 @@ require_once '.\layouts\header.php';
               $row = $res1->fetch_assoc();
               if ($exist) {
                 $cookieData = json_decode($_COOKIE['user'], true);
-                $query1 = "INSERT INTO feedbacks (beaches_id, feedbacks_created_at, feedbacks_rating, user_id, feedbacks_content) VALUES ('" . $row["beaches_id"] . "', '" . $time . "', '" . $rate . "', '" . $cookieData['id'] . "', '" . $feed . "')";
+                $query1 = 'INSERT INTO feedbacks (beaches_id, feedbacks_created_at, feedbacks_rating, user_id, feedbacks_content) VALUES ("' . $row['beaches_id'] . '", "' . $time . '", "' . $rate . '", "' . $cookieData['id'] . '", "' . $feed . '")';
                 $res = $conn->query($query1);
               } else {
-                $query2 = "INSERT INTO feedbacks (beaches_id, feedbacks_created_at, feedbacks_rating, user_id, feedbacks_content) VALUES ('" . $row["beaches_id"] . "', '" . $time . "', '" . $rate . "', '1', '" . $feed . "')";
+                $query2 = 'INSERT INTO feedbacks (beaches_id, feedbacks_created_at, feedbacks_rating, user_id, feedbacks_content) VALUES ("' . $row['beaches_id'] . '", "' . $time . '", "' . $rate . '", "1", "' . $feed . '")';
                 $res = $conn->query($query2);
               }
               if ($res) {

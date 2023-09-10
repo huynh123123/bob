@@ -94,15 +94,29 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 <div class='container'>
 <h2>Feedback</h2>
 <div class='card mb-3' style='max-width: 100%;'>
-    <div class='row g-3'>
-        <div class='card-body'>
-          <h5 class='card-title'>user</h5>
-          <p class='card-text'>?beaches_rating?</p>
-          <p class='card-text'>thong tin</p>
-          <p class='card-text'>day</p>
-      </div>
-    </div>
-  </div>
+    <div class='row g-3'>";
+    $fql = 'SELECT * FROM feedbacks';
+    $fesult = mysqli_query($conn, $fql);
+    if ($result->num_rows > 0) {
+      while ($feedrow = $fesult->fetch_assoc()) {
+    $rating = $feedrow["feedbacks_rating"];
+    $ctime = $feedrow["feedbacks_created_at"];
+    $fcontent = $feedrow["feedbacks_content"];
+    $fulid = $feedrow["user_id"];
+    $ful = 'SELECT user_name FROM list_user WHERE user_id="' . $fulid . '"';
+    $fusult = mysqli_query($conn, $ful);
+    $fulrow = $fusult->fetch_assoc();
+    $fname = $fulrow["user_name"];
+
+    echo "<div class='card-body'>
+    <h5 class='card-title'>" . $fname . "</h5>
+    <p class='card-text'>" . $rating . "</p>
+    <p class='card-description'>" . $fcontent . "</p>
+    <p class='card-text'>" . $ctime . "</p>";
+      }};
+echo "</div>
+</div>
+</div>
 </div>
 ";
         }
@@ -114,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
   }
   ?>
-    <?php
+</div>
+<?php
     require_once './layouts/footer.php';
     ?>
-    </div>
