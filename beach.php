@@ -1,48 +1,47 @@
 <?php
 require_once '.\layouts\header.php';
 ?>
-
 <section class='py-5'>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  if (isset($_GET['search'])) {
-    $text = $_GET['search'];
+  <?php
+  if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (isset($_GET['search'])) {
+      $text = $_GET['search'];
 
-    $squery = "SELECT beaches_name FROM beaches";
-    $rquery = mysqli_query($conn, $squery);
+      $squery = "SELECT beaches_name FROM beaches";
+      $rquery = mysqli_query($conn, $squery);
 
-    while ($row = mysqli_fetch_assoc($rquery)) {
+      while ($row = mysqli_fetch_assoc($rquery)) {
         $word = $row['beaches_name'];
-            echo $word;
+        echo $word;
+      }
     }
-}
-  if (isset($_GET['beach_id'])) {
-    $beachId = $_GET['beach_id'];
+    if (isset($_GET['beach_id'])) {
+      $beachId = $_GET['beach_id'];
 
-  $sql = 'SELECT * FROM beaches WHERE beaches_id="' . $beachId . '"';
-  $result = mysqli_query($conn, $sql);  
-  if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-      $rid = $row["regions_id"];
-      $nid = $row["nations_id"];
-      $sql3 = 'SELECT * FROM nations WHERE nations_id="' . $nid . '"';
-      $result3 = mysqli_query($conn, $sql3);  
-      $nidname2 = $result3->fetch_assoc();
-      $nidname = $nidname2["nations_name"];
-      $sql2 = 'SELECT * FROM regions WHERE regions_id="' . $rid . '"';
-      $result2 = mysqli_query($conn, $sql2);  
-      $ridname2 = $result2->fetch_assoc();
-      $ridname = $ridname2["regions_name"];
-      $address = $row["beaches_address"];
-      $img = $row["beaches_img"];
-      $name = $row["beaches_name"];
-      $rate = $row["beaches_rating"];
-      $desc = $row["beaches_description"];
-      $docx = $row["beaches_docx_link"];
-      $imagePaths = $row["beaches_img_array"];
-      $imageArray = explode(",", $imagePaths);
+      $sql = 'SELECT * FROM beaches WHERE beaches_id="' . $beachId . '"';
+      $result = mysqli_query($conn, $sql);
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          $rid = $row["regions_id"];
+          $nid = $row["nations_id"];
+          $sql3 = 'SELECT * FROM nations WHERE nations_id="' . $nid . '"';
+          $result3 = mysqli_query($conn, $sql3);
+          $nidname2 = $result3->fetch_assoc();
+          $nidname = $nidname2["nations_name"];
+          $sql2 = 'SELECT * FROM regions WHERE regions_id="' . $rid . '"';
+          $result2 = mysqli_query($conn, $sql2);
+          $ridname2 = $result2->fetch_assoc();
+          $ridname = $ridname2["regions_name"];
+          $address = $row["beaches_address"];
+          $img = $row["beaches_img"];
+          $name = $row["beaches_name"];
+          $rate = $row["beaches_rating"];
+          $desc = $row["beaches_description"];
+          $docx = $row["beaches_docx_link"];
+          $imagePaths = $row["beaches_img_array"];
+          $imageArray = explode(",", $imagePaths);
 
-      echo "<div class='container'>
+          echo "<div class='container'>
 <div class='row gx-5'>
   <aside class='col-lg-6'>
     <div class='border rounded-4 mb-3 d-flex justify-content-center'>
@@ -51,12 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
       </a>
     </div>
     <div class='d-flex justify-content-center mb-3'>";
-    foreach ($imageArray as $imagePath) {
-      echo "<a data-fslightbox='mygalley' class='border mx-1 rounded-2' target='_blank' data-type='image' href='" . trim($imagePath) . "' class='item-thumb'>
+          foreach ($imageArray as $imagePath) {
+            echo "<a data-fslightbox='mygalley' class='border mx-1 rounded-2' target='_blank' data-type='image' href='" . trim($imagePath) . "' class='item-thumb'>
       <img width='60' height='60' class='rounded-2' src='" . trim($imagePath) . "'/>
     </a>";
-  }
-echo  "</div>
+          }
+          echo "</div>
     <!-- thumbs-wrap.// -->
     <!-- gallery-wrap .end// -->
   </aside>
@@ -83,7 +82,7 @@ echo  "</div>
       " . $desc . "
       </p>
       <a href='feedback.php' class='btn btn-warning shadow-0'> Feedback </a>
-      <a href='" . $docx   . "' class='btn btn-primary shadow-0'> <i class='me-1 fa fa-shopping-basket'></i> Download </a>
+      <a href='" . $docx . "' class='btn btn-primary shadow-0'> <i class='me-1 fa fa-shopping-basket'></i> Download </a>
     </div>
   </main>
 </div>
@@ -92,97 +91,98 @@ echo  "</div>
 <!-- content -->
 <iframe src='" . $address . "' width='100%' height='200' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>
 ";
+        }
+      } else {
+        echo '<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
+  <style>
+      body {
+          background-color: #f8f8f8;
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+
+      .container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          text-align: center;
+      }
+
+      .error-code {
+          font-size: 120px;
+          font-weight: bold;
+          color: #333;
+      }
+
+      .error-message {
+          margin-top: 20px;
+          font-size: 24px;
+          color: #777;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div class="error">
+          <div class="error-code">404</div>
+          <div class="error-message">Page Not Found</div>
+      </div>
+  </div>
+</body>';
+      }
+    } else {
+      echo '<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
+  <style>
+      body {
+          background-color: #f8f8f8;
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+
+      .container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          text-align: center;
+      }
+
+      .error-code {
+          font-size: 120px;
+          font-weight: bold;
+          color: #333;
+      }
+
+      .error-message {
+          margin-top: 20px;
+          font-size: 24px;
+          color: #777;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div class="error">
+          <div class="error-code">404</div>
+          <div class="error-message">Page Not Found</div>
+      </div>
+  </div>
+</body>';
     }
-  } else {
-    echo '<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
-  <style>
-      body {
-          background-color: #f8f8f8;
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-      }
-
-      .container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100vh;
-          text-align: center;
-      }
-
-      .error-code {
-          font-size: 120px;
-          font-weight: bold;
-          color: #333;
-      }
-
-      .error-message {
-          margin-top: 20px;
-          font-size: 24px;
-          color: #777;
-      }
-  </style>
-</head>
-<body>
-  <div class="container">
-      <div class="error">
-          <div class="error-code">404</div>
-          <div class="error-message">Page Not Found</div>
-      </div>
-  </div>
-</body>';
   }
-} else {
-  echo '<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
-  <style>
-      body {
-          background-color: #f8f8f8;
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-      }
+  ?>
+  <section class='bg-light border-top py-4'>
 
-      .container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100vh;
-          text-align: center;
-      }
-
-      .error-code {
-          font-size: 120px;
-          font-weight: bold;
-          color: #333;
-      }
-
-      .error-message {
-          margin-top: 20px;
-          font-size: 24px;
-          color: #777;
-      }
-  </style>
-</head>
-<body>
-  <div class="container">
-      <div class="error">
-          <div class="error-code">404</div>
-          <div class="error-message">Page Not Found</div>
-      </div>
-  </div>
-</body>';
-}}
-?>
-<section class='bg-light border-top py-4'>
-
-<?php
-require_once './layouts/footer.php';
-?> 
-</div>
+    <?php
+    require_once './layouts/footer.php';
+    ?>
+    </div>
