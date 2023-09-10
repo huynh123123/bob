@@ -181,7 +181,21 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
   }
   ?>
   <section class='bg-light border-top py-4'>
+  <div class="container">
+  <h2>Feedback</h2>
+  <div class="card mb-3" style="max-width: 100%;">
+      <div class="row g-3">
+          <div class="card-body">
+            <h5 class="card-title">beache</h5>
+            <p class="card-text">day</p>
+            <p class="card-text">user</p>
+            <p class="card-text">?beaches_rating?</p>
+            <p class="card-text">thong tin</p>
 
+        </div>
+      </div>
+    </div>
+</div>
     <?php
     require_once './layouts/footer.php';
     ?>
