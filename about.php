@@ -19,18 +19,18 @@ require_once '.\layouts\header.php';
         </div>
       </div>
       <div class="card" style="width: 50%;">
-        <div class="card-body">
-          <h6 class="card-text" style="font-size: 25px;">"Welcome to Beauty of Beaches, a passionate community dedicated
+        <div class="card-body" >
+          <h6 class="card-text" style="font-size: 15px;">"Welcome to Beauty of Beaches, a passionate community dedicated
             to celebrating the exquisite beauty and allure of beaches worldwide. Our mission is to inspire and guide
             beach lovers like you to explore the diverse coastal landscapes that our planet has to offer.</h6>
           </br>
-          <h6 class="card-text" style="font-size: 25px;">At Beauty of Beaches, we believe that beaches are not just
+          <h6 class="card-text" style="font-size: 15px;">At Beauty of Beaches, we believe that beaches are not just
             destinations; they are gateways to serenity, adventure, and rejuvenation. We are driven by a deep
             appreciation for the natural wonders found along the shorelines, from the powdery white sands and vibrant
             marine ecosystems to the awe-inspiring sunsets and the rhythmic sound of waves crashing against the coast.
           </h6>
           </br>
-          <h6 class="card-text" style="font-size: 25px;">Our team of travel enthusiasts, writers, and photographers are
+          <h6 class="card-text" style="font-size: 15px;">Our team of travel enthusiasts, writers, and photographers are
             committed to curating a comprehensive collection of beach destinations that will transport you to these
             paradises, even from the comfort of your own home. Through our articles, stunning imagery, and firsthand
             accounts, we aim to awaken your wanderlust and provide you with the information you need to plan your own
@@ -40,18 +40,18 @@ require_once '.\layouts\header.php';
       </div>
       <div class="card" style="width: 50%;">
         <div class="card-body">
-          <h6 class="card-text" style="font-size: 25px;">We understand that each beach has its own unique charm, and
+          <h6 class="card-text" style="font-size: 15px;">We understand that each beach has its own unique charm, and
             that's why we go beyond the surface to uncover the hidden gems and lesser-known coastal treasures. Our
             expertly crafted travel guides offer insights into the local culture, activities, and attractions, ensuring
             that your beach experience is not only visually breathtaking but also culturally enriching.</h6>
           </br>
-          <h6 class="card-text" style="font-size: 25px;">At Beauty of Beaches, we also value the power of community. We
+          <h6 class="card-text" style="font-size: 15px;">At Beauty of Beaches, we also value the power of community. We
             invite you to join our passionate community of beach enthusiasts, where you can connect with fellow
             travelers, share your own beach stories and recommendations, and engage in meaningful conversations. Through
             our interactive forums and comment sections, you can seek advice, inspire others, and foster a sense of
             camaraderie among beach lovers from around the world.</h6>
           </br>
-          <h6 class="card-text" style="font-size: 25px;">Whether you're dreaming of a tropical getaway, seeking a hidden
+          <h6 class="card-text" style="font-size: 15px;">Whether you're dreaming of a tropical getaway, seeking a hidden
             gem off the beaten path, or simply yearning for a moment of escape, Beauty of Beaches is here to guide you.
             Let us be your virtual companion as you embark on a journey to explore the beauty, tranquility, and endless
             wonders of the world's most stunning beaches.</h6>
@@ -59,7 +59,7 @@ require_once '.\layouts\header.php';
       </div>
       <div class="col-sm-6 pt-2">
         <div class="card">
-          <img src="./assets/img/icon.png" class="img-thumbnail" alt="...">
+          <img src="./assets/img/icon.png" class="img-thumbnail" alt="..." style="height:50%">
         </div>
       </div>
     </div>
