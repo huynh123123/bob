@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-     <title>Dashboard</title>
+    <title>Dashboard</title>
     <link href="./assets/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -16,6 +16,7 @@
     <link href="./assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="./assets/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -51,24 +52,23 @@
                         </div>
                     </form>
 
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
                             </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
+                        </div>
+                    </li>
 
                     </ul>
 
@@ -104,100 +104,109 @@
                                     </thead>
                                     <?php
                                     $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_bob";
+                                    $username = "root";
+                                    $password = "";
+                                    $dbname = "db_bob";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+                                    $conn = new mysqli($servername, $username, $password, $dbname);
+                                    if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                    }
 
-function getBeaches()
-{
-    global $conn;
-    $sql = "SELECT * FROM beaches";
-    $result = $conn->query($sql);
-    $beaches = [];
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $beaches[] = $row;
-        }
-    }
-    return $beaches;
-}
+                                    function getBeaches()
+                                    {
+                                        global $conn;
+                                        $sql = "SELECT * FROM beaches";
+                                        $result = $conn->query($sql);
+                                        $beaches = [];
+                                        if ($result->num_rows > 0) {
+                                            while ($row = $result->fetch_assoc()) {
+                                                $beaches[] = $row;
+                                            }
+                                        }
+                                        return $beaches;
+                                    }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    try {
-        $id = $_POST['id'];
-        $name = $_POST['name'];
-        $rating = $_POST['rating'];
-        $desc = $_POST['description'];
+                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                        try {
+                                            $id = $_POST['id'];
+                                            $name = $_POST['name'];
+                                            $rating = $_POST['rating'];
+                                            $desc = $_POST['description'];
 
-        $sql = "UPDATE beaches
+                                            $sql = "UPDATE beaches
                 SET beaches_name = '" . $name . "', beaches_rating = '" . $rating . "', beaches_description = '" . $desc . "'
                 WHERE beaches_id = '" . $id . "';
                 ";
 
-        $res = $conn->query($sql);
-    } catch (Exception $e) {
-        die($e->getMessage());
-    }
-    if ($res) {
-        echo 'Data updated successfully';
-    } else {
-        echo 'Failed to update data';
-    }
+                                            $res = $conn->query($sql);
+                                        } catch (Exception $e) {
+                                            die($e->getMessage());
+                                        }
+                                        if ($res) {
+                                            echo 'Data updated successfully';
+                                        } else {
+                                            echo 'Failed to update data';
+                                        }
 
-}
+                                    }
 
-// Get all beaches
-$beaches = getBeaches();
-    foreach ($beaches as $beach) : ?>
-            <tr>
-                <td><?php echo $beach['beaches_id']; ?></td>
-                <td contenteditable="true"><?php echo $beach['beaches_name']; ?></td>
-                <td contenteditable="true"><?php echo $beach['beaches_rating']; ?></td>
-                <td contenteditable="true"><?php echo $beach['beaches_description']; ?></td>
-                <td>
-                    <button data-id="<?php echo $beach['beaches_id']; ?>" class="edit-button">Edit</button>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+                                    // Get all beaches
+                                    $beaches = getBeaches();
+                                    foreach ($beaches as $beach): ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $beach['beaches_id']; ?>
+                                            </td>
+                                            <td contenteditable="true">
+                                                <?php echo $beach['beaches_name']; ?>
+                                            </td>
+                                            <td contenteditable="true">
+                                                <?php echo $beach['beaches_rating']; ?>
+                                            </td>
+                                            <td contenteditable="true">
+                                                <?php echo $beach['beaches_description']; ?>
+                                            </td>
+                                            <td>
+                                                <button data-id="<?php echo $beach['beaches_id']; ?>"
+                                                    class="edit-button">Edit</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
                             <script>
-    $(document).ready(function() {
-        $('.edit-button').click(function() {
-            var $row = $(this).closest('tr'); // Find the closest parent element 'tr'
- var beachId = $row.find('td:first-child').text();
-var updatedName = $row.find('td:nth-child(2)').text();
-var updatedRating = $row.find('td:nth-child(3)').text();
-var updatedDescription = $row.find('td:nth-child(4)').text();
+                                $(document).ready(function () {
+                                    $('.edit-button').click(function () {
+                                        var $row = $(this).closest('tr'); // Find the closest parent element 'tr'
+                                        var beachId = $row.find('td:first-child').text();
+                                        var updatedName = $row.find('td:nth-child(2)').text();
+                                        var updatedRating = $row.find('td:nth-child(3)').text();
+                                        var updatedDescription = $row.find('td:nth-child(4)').text();
 
-            var updatedBeach = {
-                id: beachId,
-                name: updatedName,
-                rating: updatedRating,
-                description: updatedDescription
-            };
+                                        var updatedBeach = {
+                                            id: beachId,
+                                            name: updatedName,
+                                            rating: updatedRating,
+                                            description: updatedDescription
+                                        };
 
-            $.ajax({
-                url: 'admin.php',
-                type: 'POST',
-                data: updatedBeach,
-                success: function(response) {
-                    console.log(updatedBeach);
+                                        $.ajax({
+                                            url: 'admin.php',
+                                            type: 'POST',
+                                            data: updatedBeach,
+                                            success: function (response) {
+                                                console.log(updatedBeach);
 
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                }
-            });
-        });
-    });
-</script>
+                                            },
+                                            error: function (xhr, status, error) {
+                                                console.log(error);
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -225,13 +234,13 @@ var updatedDescription = $row.find('td:nth-child(4)').text();
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true"></span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.php">Logout</a>
                 </div>
             </div>
         </div>

@@ -13,6 +13,7 @@ if (!file_exists($fflagFile)) {
 }
 require_once '.\layouts\header.php';
 ?>
+
 <div class="container-fluid">
   <div id="carousel-example-generic" class="carousel slide position-relative" data-bs-ride="carousel">
     <div class="carousel-inner">
