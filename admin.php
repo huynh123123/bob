@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-<link rel="icon" href=".\assets\img\icon.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -114,99 +113,57 @@
                                         die("Connection failed: " . $conn->connect_error);
                                     }
 
-                                    function getBeaches()
-                                    {
-                                        global $conn;
-                                        $sql = "SELECT * FROM beaches";
-                                        $result = $conn->query($sql);
-                                        $beaches = [];
-                                        if ($result->num_rows > 0) {
-                                            while ($row = $result->fetch_assoc()) {
-                                                $beaches[] = $row;
-                                            }
-                                        }
-                                        return $beaches;
-                                    }
+                                    $sql = "SELECT * FROM beaches";
+                                    $results = mysqli_query($conn, $sql);
+                                    if ($results->num_rows > 0) {
+                                        while ($row = $results->fetch_assoc()) {
 
-                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                                        try {
-                                            $id = $_POST['id'];
-                                            $name = $_POST['name'];
-                                            $rating = $_POST['rating'];
-                                            $desc = $_POST['description'];
-
-                                            $sql = "UPDATE beaches
-                SET beaches_name = '" . $name . "', beaches_rating = '" . $rating . "', beaches_description = '" . $desc . "'
-                WHERE beaches_id = '" . $id . "';
-                ";
-
-                                            $res = $conn->query($sql);
-                                        } catch (Exception $e) {
-                                            die($e->getMessage());
-                                        }
-                                        if ($res) {
-                                            echo 'Data updated successfully';
-                                        } else {
-                                            echo 'Failed to update data';
-                                        }
-
-                                    }
-
-                                    // Get all beaches
-                                    $beaches = getBeaches();
-                                    foreach ($beaches as $beach): ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $beach['beaches_id']; ?>
-                                            </td>
-                                            <td contenteditable="true">
-                                                <?php echo $beach['beaches_name']; ?>
-                                            </td>
-                                            <td contenteditable="true">
-                                                <?php echo $beach['beaches_rating']; ?>
-                                            </td>
-                                            <td contenteditable="true">
-                                                <?php echo $beach['beaches_description']; ?>
-                                            </td>
-                                            <td>
-                                                <button data-id="<?php echo $beach['beaches_id']; ?>"
-                                                    class="edit-button">Edit</button>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                    echo '<tr>
+    <td>' . $row['beaches_id'] . '</td>
+    <td id="ea" contenteditable="true">' . $row['regions_id'] . '</td>
+    <td contenteditable="true">' . $row['nations_id'] . '</td>
+    <td contenteditable="true">' . $row['beaches_name'] . '</td>
+    <td contenteditable="true">' . $row['beaches_img'] . '</td>
+    <td contenteditable="true">' . $row['beaches_img_array'] . '</td>
+    <td>
+    <button onclick="sendRequest(event)">Send Request</button>
+    </td>
+</tr>';
+                                        }}
+                                    ?>
                                     </tbody>
                                 </table>
                             </div>
                             <script>
-                                $(document).ready(function () {
-                                    $('.edit-button').click(function () {
-                                        var $row = $(this).closest('tr'); // Find the closest parent element 'tr'
-                                        var beachId = $row.find('td:first-child').text();
-                                        var updatedName = $row.find('td:nth-child(2)').text();
-                                        var updatedRating = $row.find('td:nth-child(3)').text();
-                                        var updatedDescription = $row.find('td:nth-child(4)').text();
+function sendRequest(event) {
+  var row = event.target.closest("tr");
+  var cells = row.getElementsByTagName("td");
+  var contentArray = [];
 
-                                        var updatedBeach = {
-                                            id: beachId,
-                                            name: updatedName,
-                                            rating: updatedRating,
-                                            description: updatedDescription
-                                        };
+  for (var i = 0; i < cells.length - 1; i++) {
+    var content = cells[i].textContent.trim();
+    contentArray.push(content);
+  }
 
-                                        $.ajax({
-                                            url: 'admin.php',
-                                            type: 'POST',
-                                            data: updatedBeach,
-                                            success: function (response) {
-                                                console.log(updatedBeach);
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost:8080", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
 
-                                            },
-                                            error: function (xhr, status, error) {
-                                                console.log(error);
-                                            }
-                                        });
-                                    });
-                                });
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        console.log("Request sent to localhost:8080");
+        console.log("Response:", xhr.responseText);
+      } else {
+        console.error("Request failed:", xhr.status);
+      }
+    }
+  };
+
+  var payload = JSON.stringify({ content: contentArray });
+
+  xhr.send(payload);
+}
                             </script>
                         </div>
                     </div>
