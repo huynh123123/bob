@@ -76,7 +76,7 @@ require_once '.\layouts\header.php';
             </div>
             <div class="form-fild">
               <label for="email" class="form-label">Rating<span class="required">*</span></label>
-              <input type="number" name="rating" placeholder="[TODO Change this] 1-5" required min="1" max="5" step="1">
+              <input type="number" name="rating" placeholder="1-5" required min="1" max="5" step="1">
             </div>
             <div class="form-fild mt-90">
               <label for="feedback" class="form-label">Your Feedback</label>
