@@ -46,106 +46,113 @@ require_once '.\layouts\header.php';
                                         $name = $row["nations_name"];
                                         echo '<input type="checkbox" class="form-check-input" id="' . $name . '" name="' . $name . '">
                                     <label class="form-check-label" for="' . $name . '">' . $name . '</label>';
-                                        }}
-                                    ?>
-                                </div>
-                                <button type="submit" class="btn btn-primary" required>Apply</button>
-                                <div class="box">
-                                </div>
-                            </form>
+                                    }
+                                }
+                                ?>
                             </div>
-                        </div>
-                        <div class="bg-white p-2 border" id="beachs">
-                            <div class="beach py-2 px-2 pb-4 border-bottom"> <?php
-                            if ($_SERVER["REQUEST_METHOD"] == "GET") {
-                                if (isset($_GET['search'])) {
-                                  $text = $_GET['search'];
-                                  $squery = "SELECT beaches_name FROM beaches";
-$rquery = mysqli_query($conn, $squery);
-
-if ($rquery) {
-    $beachNames = array();
-
-    while ($row = mysqli_fetch_assoc($rquery)) {
-        $beachNames[] = $row['beaches_name'];
-    }
-
-    $matchingResults = array_filter($beachNames, function ($beachName) use ($text) {
-        return stripos($beachName, $text) !== false;
-    });
-
-    if (!empty($matchingResults)) {
-        foreach ($matchingResults as $beachName) {
-            $querys = "SELECT * FROM beaches WHERE beaches_name='$beachName'";
-                                        $results = mysqli_query($conn, $querys);
-        
-                                        if ($results->num_rows > 0) {
-                                            while ($row = $results->fetch_assoc()) {
-                                                $id = $row["beaches_id"];
-                                                $name = $row["beaches_name"];
-                                                $desc = $row["beaches_description"];
-                                                $link = $row["beaches_img"];
-                                                $rate = $row["beaches_rating"];
-                                                echo '
-                                                <div class="card mb-4" style="max-width: 100%;">
-                                                    <div class="row g-0">
-                                                    <div class="col-md-4">
-                                            <img src='. $link .' class="img-fluid rounded-start" alt="...">
-                                                </div>
-                                        <div class="col-md-8">
-                                <div class="card-body">
-                                                <h5 class="card-title">' . $name . ' </h5>
-                                            <p class="card-text">' . $desc . '</p>
-                                            <a href="beach.php?beach_id=' . $id . '" class="btn btn-primary">More info!</a>
-                                        </div>
-                                                                        </div>
-                                </div>
-                                        </div>';
-                                            }}
-                                        }
-        } else {
-            echo "No beach names found containing the word '{$text}'.";
-        }
-}} else {
-                                        $query = "SELECT * FROM beaches";
-                                        $result = mysqli_query($conn, $query);
-        
-                                        if ($result->num_rows > 0) {
-                                            while ($row = $result->fetch_assoc()) {
-                                                $id = $row["beaches_id"];
-                                                $name = $row["beaches_name"];
-                                                $desc = $row["beaches_description"];
-                                                $link = $row["beaches_img"];
-                                                $rate = $row["beaches_rating"];
-                                                echo '
-                                                <div class="card mb-4" style="max-width: 100%;">
-                                                    <div class="row g-0">
-                                                    <div class="col-md-4">
-                                            <img src='. $link .' class="img-fluid rounded-start" alt="...">
-                                                </div>
-                                        <div class="col-md-8">
-                                <div class="card-body">
-                                                <h5 class="card-title">' . $name . ' </h5>
-                                            <p class="card-text">' . $desc . '</p>
-                                            <a href="beach.php?beach_id=' . $id . '" class="btn btn-primary">More info!</a>
-                                        </div>
-                                                                        </div>
-                                </div>
-                                        </div>';
-                                            }}
-                                        }}
-                                            ?> </div>
-                        </div> 
+                            <button type="submit" class="btn btn-primary" required>Apply</button>
+                            <div class="box">
+                            </div>
+                        </form>
                     </div>
-    
-        </section>
-        <div class="main-wrapper">
-<?php
-require_once './layouts/footer.php';
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["checkboxes"])) {
-        $selectedCheckboxes = $_POST["checkboxes"];
-        $rfilter = true;
+                </div>
+                <div class="bg-white p-2 border" id="beachs">
+                    <div class="beach py-2 px-2 pb-4 border-bottom">
+                        <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                            if (isset($_GET['search'])) {
+                                $text = $_GET['search'];
+                                $squery = "SELECT beaches_name FROM beaches";
+                                $rquery = mysqli_query($conn, $squery);
+
+                                if ($rquery) {
+                                    $beachNames = array();
+
+                                    while ($row = mysqli_fetch_assoc($rquery)) {
+                                        $beachNames[] = $row['beaches_name'];
+                                    }
+
+                                    $matchingResults = array_filter($beachNames, function ($beachName) use ($text) {
+                                        return stripos($beachName, $text) !== false;
+                                    });
+
+                                    if (!empty($matchingResults)) {
+                                        foreach ($matchingResults as $beachName) {
+                                            $querys = "SELECT * FROM beaches WHERE beaches_name='$beachName'";
+                                            $results = mysqli_query($conn, $querys);
+
+                                            if ($results->num_rows > 0) {
+                                                while ($row = $results->fetch_assoc()) {
+                                                    $id = $row["beaches_id"];
+                                                    $name = $row["beaches_name"];
+                                                    $desc = $row["beaches_description"];
+                                                    $link = $row["beaches_img"];
+                                                    $rate = $row["beaches_rating"];
+                                                    echo '
+                                                <div class="card card mb-40 py-3 expandable-card" style="width: 18rem;">
+                                                    <div class="row g-0">
+                                                    <div class="col-md-4">
+                                            <img src=' . $link . ' class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                        <div class="col-md-8">
+                                <div class="card-body">
+                                                <h5 class="card-title">' . $name . ' </h5>
+                                            <p class="card-text">' . $desc . '</p>
+                                            <a href="beach.php?beach_id=' . $id . '" class="btn btn-primary">More info!</a>
+                                        </div>
+                                                                        </div>
+                                </div>
+                                        </div>';
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        echo "No beach names found containing the word '{$text}'.";
+                                    }
+                                }
+                            } else {
+                                $query = "SELECT * FROM beaches";
+                                $result = mysqli_query($conn, $query);
+
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        $id = $row["beaches_id"];
+                                        $name = $row["beaches_name"];
+                                        $desc = $row["beaches_description"];
+                                        $link = $row["beaches_img"];
+                                        $rate = $row["beaches_rating"];
+                                        echo '
+                                                <div class="card mb-4" style="max-width: 100%;">
+                                                    <div class="row g-0">
+                                                    <div class="col-md-4">
+                                            <img src=' . $link . ' class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                        <div class="col-md-8">
+                                <div class="card-body">
+                                                <h5 class="card-title">' . $name . ' </h5>
+                                            <p class="card-text">' . $desc . '</p>
+                                            <a href="beach.php?beach_id=' . $id . '" class="btn btn-primary">More info!</a>
+                                        </div>
+                                                                        </div>
+                                </div>
+                                        </div>';
+                                    }
+                                }
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+</section>
+<div class="main-wrapper">
+    <?php
+    require_once './layouts/footer.php';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["checkboxes"])) {
+            $selectedCheckboxes = $_POST["checkboxes"];
+            $rfilter = true;
 
             $conditions = array();
             foreach ($selectedCheckboxes as $selectedCheckbox) {
