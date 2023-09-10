@@ -89,7 +89,7 @@ require_once '.\layouts\header.php';
                                                     $link = $row["beaches_img"];
                                                     $rate = $row["beaches_rating"];
                                                     echo '
-                                                <div class="card card mb-40 py-3 expandable-card" style="width: 18rem;">
+                                                <div class="card mb-4" style="max-width: 100%;">
                                                     <div class="row g-0">
                                                     <div class="col-md-4">
                                             <img src=' . $link . ' class="img-fluid rounded-start" alt="...">
