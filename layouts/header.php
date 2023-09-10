@@ -5,6 +5,7 @@ require_once '.\1.Database\connection.php';
 <html lang="en">
 
 <head>
+<link rel="icon" href=".\assets\img\icon.png" type="image/x-icon">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
