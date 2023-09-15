@@ -29,9 +29,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION["role"] = $userCookieData['role'];
 
       if ($_SESSION['role'] == "admin") {
+        echo "<script>alert('Hello Admin!');</script>";
+        echo '<script>
+              setTimeout(function() {
+              window.location.href = "admin.php";
+              }, 0000);
+              </script>';
         header("Location: admin.php");
       } else {
-        header("Location: index.php");
+        echo "<script>alert('Successful login');</script>";
+        echo '<script>
+              setTimeout(function() {
+              window.location.href = "index.php";
+              }, 0000);
+              </script>';
       }
       exit;
     } else {

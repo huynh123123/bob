@@ -125,8 +125,9 @@ require_once '.\layouts\header.php';
                                                 <div class="card mb-4" style="max-width: 100%;">
                                                     <div class="row g-0">
                                                     <div class="col-md-4">
-                                            <img src=' . $link . ' class="img-fluid rounded-start" alt="...">
-                                                </div>
+                                                    <a href="beach.php?beach_id=' . $id . '"><img src=' . $link . ' class="img-fluid rounded-start" alt="...">
+                                                </a>
+                                                    </div>
                                         <div class="col-md-8">
                                 <div class="card-body">
                                                 <h5 class="card-title">' . $name . ' </h5>

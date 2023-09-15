@@ -1,23 +1,21 @@
 <?php
 require_once '.\layouts\header.php';
 ?>
+<!-- :3 -->
 <section class='py-5'>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  if (isset($_GET['search'])) {
-    $text = $_GET['search'];
-
-    $squery = "SELECT beaches_name FROM beaches";
-    $rquery = mysqli_query($conn, $squery);
-
-    while ($row = mysqli_fetch_assoc($rquery)) {
+  <?php
+  if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (isset($_GET['search'])) {
+      $text = $_GET['search'];
+      $squery = "SELECT beaches_name FROM beaches";
+      $rquery = mysqli_query($conn, $squery);
+      while ($row = mysqli_fetch_assoc($rquery)) {
         $word = $row['beaches_name'];
-            echo $word;
+        echo $word;
+      }
     }
-}
-  if (isset($_GET['beach_id'])) {
-    $beachId = $_GET['beach_id'];
-
+    if (isset($_GET['beach_id'])) {
+      $beachId = $_GET['beach_id'];
       $sql = 'SELECT * FROM beaches WHERE beaches_id="' . $beachId . '"';
       $result = mysqli_query($conn, $sql);
       if ($result->num_rows > 0) {
@@ -40,24 +38,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
           $docx = $row["beaches_docx_link"];
           $imagePaths = $row["beaches_img_array"];
           $imageArray = explode(",", $imagePaths);
-
-          echo "<div class='container'>
-<div class='row gx-5'>
-  <aside class='col-lg-6'>
-    <div class='border rounded-4 mb-3 d-flex justify-content-center'>
-      <a data-fslightbox='mygalley' class='rounded-4' target='_blank' data-type='image' href='" . $img . "'>
-        <img style='max-width: 100%; max-height: 100vh; margin: auto;' class='rounded-4 fit' src='" . $img . "' />
-      </a>
-    </div>
-    <div class='d-flex justify-content-center mb-3'>";
+          echo "
+            <div class='container'>
+            <div class='row gx-5'>
+            <aside class='col-lg-6'>
+            <div class='border rounded-4 mb-3 d-flex justify-content-center'>
+              <a data-fslightbox='mygalley' class='rounded-4' target='_blank' data-type='image' href='" . $img . "'>
+                <img style='max-width: 100%; max-height: 100vh; margin: auto;' class='rounded-4 fit' src='" . $img . "' />
+              </a>
+            </div>
+          <div class='d-flex justify-content-center mb-3'>";
           foreach ($imageArray as $imagePath) {
             echo "<a data-fslightbox='mygalley' class='border mx-1 rounded-2' target='_blank' data-type='image' href='" . trim($imagePath) . "' class='item-thumb'>
-      <img width='60' height='60' class='rounded-2' src='" . trim($imagePath) . "'/>
+            <img width='60' height='60' class='rounded-2' src='" . trim($imagePath) . "'/>
     </a>";
           }
           echo "</div>
-    <!-- thumbs-wrap.// -->
-    <!-- gallery-wrap .end// -->
   </aside>
 <main class='col-lg-6'>
     <div class='ps-lg-3'>
@@ -82,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
       " . $desc . "
       </p>
       <a href='feedback.php' class='btn btn-warning shadow-0'> Feedback </a>
-      <a href='" . $docx . "' class='btn btn-primary shadow-0'> <i class='me-1 fa fa-shopping-basket'></i> Download </a>
+      <a href='" . $docx . "' class='btn btn-primary shadow-0'> Download </a>
     </div>
   </main>
 </div>
@@ -94,27 +90,31 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 <div class='container'>
 <h2>Feedback</h2>
 <div class='card mb-3' style='max-width: 100%;'>
-    <div class='row g-3'>";
-    $fql = 'SELECT * FROM feedbacks';
-    $fesult = mysqli_query($conn, $fql);
-    if ($result->num_rows > 0) {
-      while ($feedrow = $fesult->fetch_assoc()) {
-    $rating = $feedrow["feedbacks_rating"];
-    $ctime = $feedrow["feedbacks_created_at"];
-    $fcontent = $feedrow["feedbacks_content"];
-    $fulid = $feedrow["user_id"];
-    $ful = 'SELECT user_name FROM list_user WHERE user_id="' . $fulid . '"';
-    $fusult = mysqli_query($conn, $ful);
-    $fulrow = $fusult->fetch_assoc();
-    $fname = $fulrow["user_name"];
+    <div class='row g-3'>
+    <div class='card-body'>";
+          $fql = 'SELECT * FROM feedbacks';
+          $fesult = mysqli_query($conn, $fql);
+          if ($result->num_rows > 0) {
+            while ($feedrow = $fesult->fetch_assoc()) {
+              $rating = $feedrow["feedbacks_rating"];
+              $ctime = $feedrow["feedbacks_created_at"];
+              $fcontent = $feedrow["feedbacks_content"];
+              $fulid = $feedrow["user_id"];
+              $ful = 'SELECT user_name FROM list_user WHERE user_id="' . $fulid . '"';
+              $fusult = mysqli_query($conn, $ful);
+              $fulrow = $fusult->fetch_assoc();
+              $fname = $fulrow["user_name"];
 
-    echo "<div class='card-body'>
-    <h5 class='card-title'>" . $fname . "</h5>
-    <p class='card-text'>" . $rating . "</p>
-    <p class='card-description'>" . $fcontent . "</p>
-    <p class='card-text'>" . $ctime . "</p>";
-      }};
-echo "</div>
+              echo "
+    <h5 class='card-title'>Name:" . $fname . "</h5>
+    <p class='card-text'>Rating:" . $rating . "</p>
+    <p class='card-description'>Feedback:" . $fcontent . "</p>
+    <p class='card-text'>Time:" . $ctime . "</p>
+    <br></br>";
+            }
+          }
+          ;
+          echo "</div>
 </div>
 </div>
 </div>
@@ -128,7 +128,12 @@ echo "</div>
     }
   }
   ?>
-</div>
-<?php
+  </div>
+
+  <div class="main-wrapper">
+
+    <?php
     require_once './layouts/footer.php';
     ?>
+
+  </div>

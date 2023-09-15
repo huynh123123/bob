@@ -63,40 +63,41 @@ require_once '.\layouts\header.php';
         </div>
       </div>
     </div>
+    <!--  -->
     <div class="container marketing">
       <div class="row py-5">
         <p class="text-center fs-2 py-5">About our team:</p>
+<!--  -->
         <div class="col-md-3 mb-20">
           <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
             <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
           </svg>
           <h2 class="fw-normal">HA TRAN TONG NGAN</h2>
           <p>Coder</p>
         </div>
+        <!--  -->
         <div class="col-md-3">
           <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
             <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
           </svg>
           <h2 class="fw-normal">MINH TO NHAT</h2>
           <p>Search infomation</p>
         </div>
+        <!--  -->
         <div class="col-md-3">
           <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
             <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
           </svg>
           <h2 class="fw-normal">HUYNH MAI NGOC</h2>
           <p>Coder</p>
         </div>
+      <!--  -->
         <div class="col-md-3">
           <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
             <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
           </svg>
           <h2 class="fw-normal">QUAN NGUYEN ANH</h2>
