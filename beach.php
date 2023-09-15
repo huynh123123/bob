@@ -92,7 +92,7 @@ require_once '.\layouts\header.php';
 <div class='card mb-3' style='max-width: 100%;'>
     <div class='row g-3'>
     <div class='card-body'>";
-          $fql = 'SELECT * FROM feedbacks';
+          $fql = 'SELECT * FROM feedbacks WHERE beaches_id="' . $beachId . '"';
           $fesult = mysqli_query($conn, $fql);
           if ($result->num_rows > 0) {
             while ($feedrow = $fesult->fetch_assoc()) {
@@ -104,7 +104,7 @@ require_once '.\layouts\header.php';
               $fusult = mysqli_query($conn, $ful);
               $fulrow = $fusult->fetch_assoc();
               $fname = $fulrow["user_name"];
-
+              $cid = $feedrow["beaches_id"];              
               echo "
     <h5 class='card-title'>Name:" . $fname . "</h5>
     <p class='card-text'>Rating:" . $rating . "</p>
