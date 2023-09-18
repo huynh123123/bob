@@ -64,6 +64,7 @@ require_once '.\layouts\header.php';
         }
       }
       ?>
+      <!--  test -->
       <button class="carousel-control-prev" data-bs-target="#carousel-example-generic" type="button"
         data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
